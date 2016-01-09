@@ -9,36 +9,58 @@ import numpy as np
 from scipy import interpolate
 import unittest
 
+type_material = {'steel': 0, 'concrete': 1}
+
 
 class GeneralMaterial(object):
     '''возвращает функцию по интерполяции по графику (общему)
 typPS - тип предельного состояния'''
 
     def __init__(self, matObject):
+        '''инициация материала из словаря'''
         dictMat = matObject.kwargs
 
         self.name = dictMat["name"]  # название материала
         self.type_material = dictMat["type_material"]  # "steel" , "concrete"
         self.data_table_ps1 = dictMat["data_table_ps1"]  # таблица в виде списка для расчетной ситуации
         self.data_table_ps2 = dictMat["data_table_ps2"]  # таблица в виде списка для норативной ситуации
-        self.data_table_ps2_long = dictMat["data_table_ps2_long"]  # таблица в виде списка для длительной норативной ситуации
+        self.data_table_ps2_long = dictMat[
+            "data_table_ps2_long"]  # таблица в виде списка для длительной норативной ситуации
         self.e = dictMat["e"]  # модуль деформации начальный
         self.e_ult = dictMat["e_ult"]  # предельое
         self.e_crit = dictMat["e_crit"]  # дальше можно не решать
-        self.creep = dictMat["creep"]  # 0 - нет, 1 - да
+        self.creep_ps1 = dictMat["creep_ps1"]  # 0 - нет, 1 - да
+        self.creep_crack = dictMat["creep_crack"]  # 0 - нет, 1 - да
+        self.creep_deform = dictMat["creep_deform"]  # 0 - нет, 1 - да
         self.e0_ult = dictMat["e0_ult"]  # для бетона
         self.et = dictMat["et"]  # для бетона для определения трещин - дальше напряжения падают до 0
 
     def generate_ps1(self):
+        '''генерация для первого пр.сост'''
         self.general_generate(self.data_table_ps1)
 
     def generate_ps2(self):
+        '''генерация для 2 пр.сост'''
+
         self.general_generate(self.data_table_ps2)
 
     def generate_ps2long(self):
+        '''генерация для 2 пр.сост. длит. нагрузка'''
+
         self.general_generate(self.data_table_ps2_long)
 
     def general_generate(self, table):
+        '''генерация графика из таблицы e-sigma.
+        При этом принимается, что если выходим за график - расчет просто прекращаем.
+        1. копируется все точки из таблицы, если нет, то делаются нулевые точки
+        2. заполняем последние точки:
+            для стали - (e_crit, y[-1])
+            для бетона - 2 точки: (e_bt,0), (e_crit*1000, 0)
+        3. в начало ставим (-e_crit, 0)
+        4. создается:
+         x, y, yEv - угол наклона касательной от 0 (для х=0 - как для следующей точки или предыдущей точки)
+         ky - угол наклона касательной от точки к точки, kyEv - угол наклона от точки к точки для yEv
+        '''
         x = []
         y = []
         for point in table:
@@ -51,13 +73,16 @@ typPS - тип предельного состояния'''
             y.append(0)
 
         if self.type_material == "steel":
-            x.append(x[-1] * 1000000.)
+            x.append(self.e_crit)
             y.append(y[-1])
         else:
             x.append(self.et)
             y.append(0)
 
-        x.insert(0, -self.e_crit * 1000000.)
+            x.append(self.e_crit * 1000)
+            y.append(0)
+
+        x.insert(0, -self.e_crit)
         y.insert(0, y[0])
 
         x = np.array(x)
@@ -69,7 +94,10 @@ typPS - тип предельного состояния'''
             if x[i] != 0:
                 ev.append(y[i] / x[i])
             else:
-                ev.append(y[i - 1] / x[i - 1])
+                if len(x) > i + 1:
+                    ev.append(y[i + 1] / x[i + 1])
+                else:
+                    ev.append(y[i - 1] / x[i - 1])
 
         self.x = x
         self.y = y
@@ -78,20 +106,12 @@ typPS - тип предельного состояния'''
         self.kyEv = []
         for i in range(len(x) - 1):
             self.ky.append(
-                (self.y[i + 1] - self.y[i]) / (self.x[i + 1] - self.x[i]))  # наклон касательной от точки к точки
+                    (self.y[i + 1] - self.y[i]) / (self.x[i + 1] - self.x[i]))  # наклон касательной от точки к точки
             self.kyEv.append((self.yEv[i + 1] - self.yEv[i]) / (self.x[i + 1] - self.x[i]))  # наклон касательной к yEv
         self.ky = np.array(self.ky)
         self.kyEv = np.array(self.kyEv)
 
         self.dx = self.e
-
-
-
-
-
-
-
-
 
 
 class Reinforced(object):

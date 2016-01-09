@@ -11,14 +11,15 @@ from PyQt4 import QtGui, QtCore, uic
 
 
 class Solves(object):
-    '''все расчеты производятся относительно центра массы'''
+    '''все расчеты производятся относительно центра масс'''
 
     def __init__(self):
         pass
 
     def load_list_section(self, lst):
         '''Загрузка форм
-        lst - список созданных объектов '''
+        lst - список созданных объектов
+        сохраняетв в self.formLst'''
 
         lst_section = []
         for section_raw in lst:
@@ -61,7 +62,18 @@ class Solves(object):
 
     def formGenSC(self):
         '''Создает матрицу элементов
-        type0 - флаг если начальные искривления
+        self.elemMatr - общая матрица
+        self.elemMatrС - матрица бетона
+        self.elemMatrS - матрица арматуры
+        в каждой матрице:
+        []  -  координаты Х относительно центра тяжести
+        [] - коордиранты Y  относительно центра тяжести
+        [] - площадь
+        [] - материал
+        [] - e0
+        [] - rx
+        [] - ry
+
         Проверено, тесты не сделаны'''
         lst = self.formLst
         matrS = np.array([[0], [0], [0], [0], [0], [0], [0]])
@@ -69,7 +81,7 @@ class Solves(object):
         matrC = np.array([[0], [0], [0], [0], [0], [0], [0]])
         for i in lst:
             print i, 'sect'
-            if self.lstMat[i.mat].type_material == 'steel':
+            if self.lstMat[i.mat].type_material == rcMaterial.type_material['steel']:
                 #                print 'tut'
                 matrS = np.concatenate((matrS, i.mesh()), axis=1)
             else:
@@ -94,33 +106,34 @@ class Solves(object):
         self.elemMatrC = matrC
         self.elemMatrS = matrS
 
-    def formGen(self):
-        '''Создает матрицу элементов
-        type0 - флаг если начальные искривления
-        Проверено, тесты не сделаны'''
-        self.formGenSC()
-
-        #        print 'elemMatr', self.elemMatr
-        matr = self.elemMatr
-
-        e0 = (matr[-3] != 0).astype(float)
-        rx = (matr[-2] != 0).astype(float)
-        ry = (matr[-1] != 0).astype(float)
-
-        e0sum = e0.sum()
-        rxsum = rx.sum()
-        rysum = ry.sum()
-
-        if e0sum < 10 ** (-10) and rxsum < 10 ** (-10) and rysum < 10 ** (-10):
-            self.type0 = False
-        else:
-            self.type0 = True
-
-        self.jx = (matr[3] * matr[0] * matr[0]).sum
-        self.jy = (matr[3] * matr[1] * matr[1]).sum
+    # def formGen(self):
+    #     '''Создает матрицу элементов
+    #     type0 - флаг если начальные искривления
+    #     Проверено, тесты не сделаны'''
+    #     self.formGenSC()
+    #
+    #     #        print 'elemMatr', self.elemMatr
+    #     matr = self.elemMatr
+    #
+    #     e0 = (matr[-3] != 0).astype(float)
+    #     rx = (matr[-2] != 0).astype(float)
+    #     ry = (matr[-1] != 0).astype(float)
+    #
+    #     e0sum = e0.sum()
+    #     rxsum = rx.sum()
+    #     rysum = ry.sum()
+    #
+    #     if e0sum < 10 ** (-10) and rxsum < 10 ** (-10) and rysum < 10 ** (-10):
+    #         self.type0 = False
+    #     else:
+    #         self.type0 = True
+    #
+    #     self.jx = (matr[3] * matr[0] * matr[0]).sum
+    #     self.jy = (matr[3] * matr[1] * matr[1]).sum
 
     def load_list_materials(self, raw_list):
-        '''загрухка сыпых данных и создание материалов'''
+        '''загрузка сырых данных и создание материалов.
+        материалы сохраняются в self.lstMat'''
         lstMat = []
         for mat in raw_list:
             lstMat.append(rcMaterial.GeneralMaterial(mat))
@@ -239,7 +252,8 @@ class Solves(object):
         self.dxmatr = np.array(dxmatr)
 
     def centerMass(self):
-        '''возвращает координаты центра массы - проверено, тесты не сделаны'''
+        '''возвращает координаты центра массы - проверено, тесты не сделаны
+        возвращает x, y'''
         a = 0
         sx = 0
         sy = 0
@@ -501,16 +515,16 @@ class Solves(object):
                 n += 1
 
     def critPoint(self, e0, rx, ry):
+        # //TODO сделать генерацию без rx ry
         lstCritPoint = []
         for i in self.formLst:
             lstCritPoint += i.critPoint(e0, rx, ry)
-        self.lstCritPoint = lstCritPoint
-        #        print 'lst', lstCritPoint
+        # print 'lst', lstCritPoint
 
         x, y = self.centerMass()
 
-        for i in self.lstCritPoint:
-            #            print 'i', i
+        for i in lstCritPoint:
+            print 'i', i
             i[0] -= x
             i[1] -= y
         # print 'lstCritPoint', lstCritPoint
@@ -887,34 +901,30 @@ class Solves(object):
         return k, klst
 
     def EJ(self):
-        ln = len(self.elemMatr[0])
-        matrBolS = np.zeros(ln)
-        matrBolB = np.zeros(ln)
-
-        for i in range(len(self.lstMat)):
-            if self.lstMat[i].type_material != 'steel':
-                matrBolTemp = (self.elemMatr[3] == i)
-                matrBolB += matrBolTemp * self.lstMat[i].e
-            else:
-                matrBolTemp = (self.elemMatr[3] == i)
-                matrBolS += matrBolTemp * self.lstMat[i].e
-
-        matrEbJx = self.elemMatr[0] * self.elemMatr[0] * self.elemMatr[2] * matrBolB
+        '''возвращает EJ:
+        EbJx, EbJy, EsJx, EsJy'''
+        # TODO сделать чтобы считалось один раз и записывалось в переменную. Сделать точный расчет.
+        matrEbJx = self.elemMatrC[0] * self.elemMatrC[0] * self.elemMatrC[2]
         EbJx = matrEbJx.sum()
 
-        matrEbJy = self.elemMatr[1] * self.elemMatr[1] * self.elemMatr[2] * matrBolB
+        matrEbJy = self.elemMatrC[1] * self.elemMatrC[1] * self.elemMatrC[2]
         EbJy = matrEbJy.sum()
 
-        matrEsJx = self.elemMatr[0] * self.elemMatr[0] * self.elemMatr[2] * matrBolS
+        matrEsJx = self.elemMatrS[0] * self.elemMatrS[0] * self.elemMatrS[2]
         EsJx = matrEsJx.sum()
 
-        matrEsJy = self.elemMatr[1] * self.elemMatr[1] * self.elemMatr[2] * matrBolS
+        matrEsJy = self.elemMatrS[1] * self.elemMatrS[1] * self.elemMatrS[2]
         EsJy = matrEsJy.sum()
 
         return EbJx, EbJy, EsJx, EsJy
 
     def nuD(self, lstNMxMy, typStat, lx, ly, l, typD):
         '''расчет внецентреного сжатия'''
+
+        title = ['N, т', 'MxNux, т*м', 'MyNuy, т*м', 'kcrNx', 'kcrNy', 'nux', 'nuy', 'Mx, т*м', 'My, т*м', 'ex, м',
+                 'ey, м', 'phiLx', 'phiLy', 'deltaEx', 'deltaEy', 'Dx, т*м*м', 'Dy, т*м*м',
+                 'Ncrx, т', 'Ncry, т']
+
         #        сначала определяем e0 в см
         e01 = 0.01
         e02 = l / 600.
@@ -954,42 +964,28 @@ class Solves(object):
 
         EbJx, EbJy, EsJx, EsJy = self.EJ()
 
-        error = True
-        out = []
-        # закольцовываем расчет
-        for nmxmy in lstNMxMy:
-            #            print 'nmxmy', nmxmy
-            n, mx, my, nl, mxl, myl = nmxmy
+        def nu(n, mx, mxl, typStat, lx, l, typD, eax, b):
+            # закольцовываем расчет
             # определяем усилие при N:
+            error = False
+
             if n >= 0 or typD == False:
                 ex = 0
-                ey = 0
-                NcrNx = 0
-                NcrNy = 0
+                kcrNx = 0
                 nux = 1
-                nuy = 1
                 MxNux = mx
                 Mx = mx
-                MyNuy = my
-                My = my
                 phiLx = ''
-                phiLy = ''
                 deltaEx = ''
-                deltaEy = ''
                 Dx = ''
-                Dy = ''
                 Ncrx = ''
-                Ncry = ''
             else:
                 ex = mx / n
-                ey = my / n
 
                 if nl != 0:
                     exl = mxl / nl
-                    eyl = myl / nl
                 else:
                     exl = 0
-                    eyl = 0
                 # уточняем усилие по e
                 if typStat == False:
                     if abs(ex) < abs(eax):
@@ -997,135 +993,89 @@ class Solves(object):
                             ex = abs(eax)
                         else:
                             ex = -abs(eax)
-                    if abs(ey) < abs(eay):
-                        if ey >= 0:
-                            ey = abs(eay)
-                        else:
-                            ey = -abs(eay)
 
                     if abs(exl) < abs(eax):
                         if exl >= 0:
                             exl = abs(eax)
                         else:
                             exl = -abs(eax)
-                    if abs(eyl) < abs(eay):
-                        if eyl >= 0:
-                            eyl = abs(eay)
-                        else:
-                            eyl = -abs(eay)
 
                 else:
                     if ex >= 0:
                         ex += eax
                     else:
                         ex -= eax
-                    if ey >= 0:
-                        ey += eay
-                    else:
-                        ey -= eay
 
                     if exl >= 0:
                         exl += eax
                     else:
                         exl -= eax
-                    if eyl >= 0:
-                        eyl += eay
-                    else:
-                        eyl -= eay
 
                 Mx = n * ex
-                My = n * ey
 
                 if nl != 0:
                     Mxl = nl * exl
-                    Myl = nl * eyl
                 else:
                     Mxl = mxl
-                    Myl = myl
+
                 # определеяем phiL
                 if n == 0 and Mx == 0:
                     phiLx = 1
                 else:
-                    lstmxT = []
-                    lstmxlT = []
-                    matrS = np.transpose(self.elemMatrS)
-                    for i in matrS:
-                        lstmxT.append(Mx + n * i[0] / 100.)
-                        lstmxlT.append(Mxl + nl * i[0] / 100.)
-                    phiLx = max(lstmxlT) / max(lstmxT) + 1.
+                    lstmxmxl = []
 
-                if n == 0 and My == 0:
-                    phiLy = 1
-                else:
-                    lstmyT = []
-                    lstmylT = []
                     matrS = np.transpose(self.elemMatrS)
                     for i in matrS:
-                        lstmyT.append(My + n * i[1] / 100.)
-                        lstmylT.append(Myl + nl * i[1] / 100.)
-                    phiLy = max(lstmylT) / max(lstmyT) + 1.
+                        lstmxmxl.append((Mx + n * i[0] / 100.) / (Mxl + nl * i[0] / 100.))
+
+                    phiLx = max(lstmxmxl) + 1.
 
                 if phiLx > 2:
                     phiLx = 2
                 if phiLx < 1:
                     phiLx = 1
 
-                if phiLy > 2:
-                    phiLy = 2
-                if phiLy < 1:
-                    phiLy = 1
                     # определяем deltaE
 
                 deltaEx = abs(ex / b)
-                deltaEy = abs(ey / h)
 
                 deltaEx = max(deltaEx, 0.15)
-                deltaEy = max(deltaEy, 0.15)
 
                 kbx = 0.15 / (phiLx * (0.3 + deltaEx))
-                kby = 0.15 / (phiLy * (0.3 + deltaEy))
 
                 Dx = (kbx * EbJx + 0.7 * EsJx) / 1000. / 100. / 100.
-                Dy = (kby * EbJy + 0.7 * EsJy) / 1000. / 100. / 100.
 
                 if lx == 0:
-                    Ncrx = ''
-                    NcrNx = 0
+                    Ncrx = 0
+                    kcrNx = 0
                     MxNux = Mx
                     nux = 1
                 else:
                     Ncrx = 3.14 * 3.14 * Dx / lx ** 2
-                    NcrNx = abs(n / Ncrx)
-                    if NcrNx >= 1:
-                        error = False
+                    kcrNx = abs(n / Ncrx)
+                    if kcrNx >= 1:
+                        error = True
                         nux = 'Error'
                         MxNux = 'Error'
                     else:
-                        nux = 1 / (1 - NcrNx)
+                        nux = 1 / (1 - kcrNx)
                         MxNux = nux * Mx
+            return MxNux, kcrNx, nux, Mx, ex, phiLx, deltaEx, Dx, Ncrx, error
 
-                if ly == 0:
-                    Ncry = ''
-                    NcrNy = 0
-                    MyNuy = My
-                    nuy = 1
-                else:
-                    Ncry = 3.14 * 3.14 * Dy / ly ** 2
-                    NcrNy = abs(n / Ncry)
-                    if NcrNy >= 1:
-                        error = False
-                        nuy = 'Error'
-                        MyNuy = 'Error'
+        error = False
+        out = []
+        for nmxmy in lstNMxMy:
+            n, mx, my, nl, mxl, myl = nmxmy
+            MxNux, kcrNx, nux, Mx, ex, phiLx, deltaEx, Dx, Ncrx, errorX = nu(n, mx, mxl, typStat, lx, l, typD, eax, b)
+            MyNuy, kcrNy, nuy, My, ey, phiLy, deltaEy, Dy, Ncry, errory = nu(n, my, myl, typStat, ly, l, typD, eax, b)
+            if errorX == True or errory == True:
+                error = True
 
-                    else:
-                        nuy = 1 / (1 - NcrNy)
-                        MyNuy = nuy * My
-
-            outitem = [n, MxNux, MyNuy, NcrNx, NcrNy, nux, nuy, Mx, My, ex, ey, phiLx, phiLy, deltaEx, deltaEy, Dx, Dy,
+            outitem = [n, MxNux, MyNuy, kcrNx, kcrNy, nux, nuy, Mx, My, ex, ey, phiLx, phiLy, deltaEx, deltaEy, Dx, Dy,
                        Ncrx, Ncry]
             out.append(outitem)
 
-        return [out, error]
+        return [out, error, title]
 
 
 if __name__ == "__main__":

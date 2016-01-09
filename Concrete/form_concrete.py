@@ -12,7 +12,7 @@ from matplotlib.collections import PatchCollection
 from matplotlib import cm
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
 from matplotlib.mlab import griddata
-
+import rcMaterial
 import numpy as np
 from PyQt4 import QtGui, QtCore, uic
 
@@ -85,7 +85,6 @@ class MainWindow(QtGui.QMainWindow):
         # menu
         self.menuSolve.triggered.connect(self.solve)
 
-
         # connect for load
         self.boxCountLoad.valueChanged.connect(self.table_load_count_row)
 
@@ -108,11 +107,11 @@ class MainWindow(QtGui.QMainWindow):
         self.change_type_material()
 
         self.box_number_ps1.valueChanged.connect(
-            lambda: self.change_count_row_any_table(self.box_number_ps1.value(), self.table_ps1))
+                lambda: self.change_count_row_any_table(self.box_number_ps1.value(), self.table_ps1))
         self.box_number_ps2.valueChanged.connect(
-            lambda: self.change_count_row_any_table(self.box_number_ps2.value(), self.table_ps2))
+                lambda: self.change_count_row_any_table(self.box_number_ps2.value(), self.table_ps2))
         self.box_number_ps2_long.valueChanged.connect(
-            lambda: self.change_count_row_any_table(self.box_number_ps2_long.value(), self.table_ps2_long))
+                lambda: self.change_count_row_any_table(self.box_number_ps2_long.value(), self.table_ps2_long))
 
         self.button_dia_ps1.clicked.connect(lambda: self.plot_dia(self.table_ps1))
         self.button_dia_ps2.clicked.connect(lambda: self.plot_dia(self.table_ps2))
@@ -152,7 +151,7 @@ class MainWindow(QtGui.QMainWindow):
         try:
             # 0 - nmxmy
             lst_nmxmy = self.get_nmxmy()
-            print lst_nmxmy
+            print 'lst_nmxmy', lst_nmxmy
             # 1 - create material
             # lst_material = []
             # for material_raw in self.list_save_material:
@@ -171,6 +170,14 @@ class MainWindow(QtGui.QMainWindow):
             if not self.list_save_section:
                 raise TypeError(u"Не заданы сечения")
 
+            error_section = True
+            for item in self.list_save_section:
+                if item.kwargs['type_section'] in [u'Круг', u'Прямоугольник', u'Треугольник']:
+                    error_section = False
+
+            if error_section:
+                raise TypeError(u"Не заданы сечения")
+
             for item in self.list_save_section:
                 print item.kwargs
 
@@ -186,22 +193,36 @@ class MainWindow(QtGui.QMainWindow):
             l = self.doubleBoxL.value()
 
             print typD, typStat, lx, ly, l
-            tableD = rcsolve.nuD(lst_nmxmy, typStat, lx, ly, l, typD)
-            print tableD
+            outD, error, titleD = rcsolve.nuD(lst_nmxmy, typStat, lx, ly, l, typD)
+            print outD, error, titleD
+
+            # загрузка в TableD
+            self.input_table_in(outD, self.tableLoadD, titleD)
+            if error == True:
+                raise TypeError(u'N>Ncr, расчет невозможен')
+
+        # TODO расчет прочности
         except TypeErrorStrenght:
             self.show_error(u"Ошибка в таблице усилий")
 
             # except TypeError as e:
             #     self.show_error(e.args[0])
-            #
-            #
-            # # 4 what do:
-            # solve=rcSolves.Solves()
-            # solve.loadForm(lst_section)
-            # solve.loadLstMat(lst_material)
-            #
-            #
-            # # 1 - dd, current, crit
+
+    @staticmethod
+    def input_table_in(array, widget, title):
+        lx, ly = np.shape(array)
+
+        widget.setRowCount(lx)
+
+        widget.setColumnCount(ly)
+
+        widget.setHorizontalHeaderLabels(title)
+        for x in xrange(lx):
+            for y in xrange(ly):
+                widget.setItem(x, y, QtGui.QTableWidgetItem(""))
+                text = str(array[x][y])
+                widget.item(x, y).setText(QtCore.QString(text))
+                widget.item(x, y).setFlags(QtCore.Qt.ItemFlags(1 + 2 + 4 + 8 + 6 + 12 + 64))
 
     def plot_section(self):
         """plot all section in self.list_save_section"""
@@ -380,28 +401,35 @@ class MainWindow(QtGui.QMainWindow):
         data_table_ps2_long = self.get_data(self.table_ps2_long) if self.box_dia_ps2_long.isEnabled() else []
 
         # get_type
-        type_material = "concrete" if self.list_type_material.currentIndex() == 0 else "steel"
+        type_material = rcMaterial.type_material["concrete"] if self.list_type_material.currentIndex() == 0 else \
+            rcMaterial.type_material["steel"]
         # get_properties
-        if type_material == "steel":
+        if type_material == rcMaterial.type_material["steel"]:
             e = self.box_es.value()
             e_ult = self.box_es_ult.value()
             e_crit = self.box_es_crit.value()
             e0_ult = None
             et = None
-            creep = self.list_creep.currentIndex()
-        elif type_material == "concrete":
+            creep_ps1 = self.list_creep_ps1.currentIndex()
+            creep_crack = self.list_creep_crack.currentIndex()
+            creep_deform = self.list_creep_deform.currentIndex()
+
+        elif type_material == rcMaterial.type_material["concrete"]:
             e = self.box_eb.value()
             e_ult = self.box_eb2_ult.value()
             e_crit = self.box_eb_crit.value()
             e0_ult = self.box_eb0_ult.value()
             et = self.box_ebt2.value()
-            creep = None
+            creep_ps1 = None
+            creep_crack = None
+            creep_deform = None
         name = self.text_name_material.text()
 
         # noinspection PyUnboundLocalVariable
         mat = Materials(name=name, type_material=type_material, data_table_ps1=data_table_ps1,
                         data_table_ps2=data_table_ps2, data_table_ps2_long=data_table_ps2_long,
-                        e=e, e_ult=e_ult, e_crit=e_crit, creep=creep, e0_ult=e0_ult, et=et)
+                        e=e, e_ult=e_ult, e_crit=e_crit, creep_ps1=creep_ps1, creep_crack=creep_crack,
+                        creep_deform=creep_deform, e0_ult=e0_ult, et=et)
         return mat
 
     def resave_material(self):
@@ -457,16 +485,19 @@ class MainWindow(QtGui.QMainWindow):
             else:
                 self.load_data(self.table_ps2_long, self.box_number_ps2_long, data_table_null)
 
-            self.list_type_material.setCurrentIndex(0 if mat.kwargs["type_material"] == "concrete" else 1)
+            self.list_type_material.setCurrentIndex(
+                    0 if mat.kwargs["type_material"] == rcMaterial.type_material["concrete"] else 1)
 
             # set _properties
-            if mat.kwargs["type_material"] == "steel":
+            if mat.kwargs["type_material"] == rcMaterial.type_material["steel"]:
                 self.box_es.setValue(mat.kwargs["e"])
                 self.box_es_ult.setValue(mat.kwargs["e_ult"])
                 self.box_es_crit.setValue(mat.kwargs["e_crit"])
-                self.list_creep.setCurrentIndex(mat.kwargs["creep"])
+                self.list_creep_ps1.setCurrentIndex(mat.kwargs["creep_ps1"])
+                self.list_creep_crack.setCurrentIndex(mat.kwargs["creep_crack"])
+                self.list_creep_deform.setCurrentIndex(mat.kwargs["creep_deform"])
 
-            elif mat.kwargs["type_material"] == "concrete":
+            elif mat.kwargs["type_material"] == rcMaterial.type_material["concrete"]:
                 self.box_eb.setValue(mat.kwargs["e"])
                 self.box_eb2_ult.setValue(mat.kwargs["e_ult"])
                 self.box_eb_crit.setValue(mat.kwargs["e_crit"])
