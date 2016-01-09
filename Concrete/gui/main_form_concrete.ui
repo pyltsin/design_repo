@@ -1,0 +1,2817 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1425</width>
+    <height>842</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1411</width>
+      <height>781</height>
+     </rect>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhNone</set>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="tabInputData">
+     <attribute name="title">
+      <string>Общие исходные данные</string>
+     </attribute>
+     <widget class="QCheckBox" name="checkBoxD">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>140</y>
+        <width>101</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Учет прогиба</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBoxPS1">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>120</y>
+        <width>81</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Прочность</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBoxPS2">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>160</y>
+        <width>181</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Трещиностойкость и прогибы</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBoxGraphics">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>190</y>
+        <width>131</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Графики </string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabStandartSection">
+     <attribute name="title">
+      <string>Материалы</string>
+     </attribute>
+     <widget class="MatplotlibWidget" name="mpl_material">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>230</y>
+        <width>471</width>
+        <height>361</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="geometry">
+       <rect>
+        <x>940</x>
+        <y>610</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Генерация</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="boxPS2_2">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>10</y>
+        <width>211</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Тип материала</string>
+      </property>
+      <widget class="QComboBox" name="list_type_material">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>30</y>
+         <width>69</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Бетон</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Металл</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Тип разрушения</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="boxPS2_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>241</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Таблица материалов</string>
+      </property>
+      <widget class="QLineEdit" name="text_name_material">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>40</y>
+         <width>71</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="button_add_material">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>70</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Добавить</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="button_save_material">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>100</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Сохранить</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="button_load_material">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>130</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Загрузить</string>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="list_materials">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>111</width>
+         <height>141</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="button_delete_material">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>160</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Удалить</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="box_steel_prop">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>20</y>
+        <width>241</width>
+        <height>191</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Дополнительные данные для металла</string>
+      </property>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>es_ult</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_es_ult">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>50</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Es, кг/см2</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_es">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>20</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>80</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>es_crit</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_es_crit">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>80</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="list_creep">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>120</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Нет</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>По формуле СП</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>120</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Ползучесть</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="box_concrete_prop">
+      <property name="geometry">
+       <rect>
+        <x>780</x>
+        <y>10</y>
+        <width>231</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Дополнительные данные для бетона</string>
+      </property>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Eb, кг/см2</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_eb">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>30</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>eb2_ult</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_eb2_ult">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>60</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>eb0_ult</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_eb0_ult">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>90</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>120</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ebt2</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_ebt2">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>120</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>150</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>eb_crit</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_eb_crit">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>150</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="box_dia_ps1">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>240</y>
+        <width>271</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Диаграмма для расчета прочности (расч., непрод.)</string>
+      </property>
+      <widget class="QPushButton" name="button_dia_ps1">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>380</y>
+         <width>75</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Нарисовать</string>
+       </property>
+      </widget>
+      <widget class="QTableWidget" name="table_ps1">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>221</width>
+         <height>291</height>
+        </rect>
+       </property>
+       <row>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>e</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>sigma, кг/см^2</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QSpinBox" name="box_number_ps1">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>20</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>3</number>
+       </property>
+       <property name="maximum">
+        <number>1000</number>
+       </property>
+       <property name="singleStep">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>3</number>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="box_dia_ps2">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>240</y>
+        <width>291</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Диаграмма для расчета трещ. и прог.(норм., непрод.)</string>
+      </property>
+      <widget class="QPushButton" name="button_dia_ps2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>380</y>
+         <width>75</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Нарисовать</string>
+       </property>
+      </widget>
+      <widget class="QTableWidget" name="table_ps2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>221</width>
+         <height>291</height>
+        </rect>
+       </property>
+       <row>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>e</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>sigma, кг/см^2</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QSpinBox" name="box_number_ps2">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>20</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>3</number>
+       </property>
+       <property name="maximum">
+        <number>1000</number>
+       </property>
+       <property name="singleStep">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>3</number>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="box_dia_ps2_long">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>240</y>
+        <width>271</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Диаграмма для расчета прогибов (норм., прод.)</string>
+      </property>
+      <widget class="QPushButton" name="button_dia_ps2_long">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>380</y>
+         <width>75</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Нарисовать</string>
+       </property>
+      </widget>
+      <widget class="QTableWidget" name="table_ps2_long">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>221</width>
+         <height>291</height>
+        </rect>
+       </property>
+       <row>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>e</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>sigma, кг/см^2</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QSpinBox" name="box_number_ps2_long">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>20</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>3</number>
+       </property>
+       <property name="maximum">
+        <number>1000</number>
+       </property>
+       <property name="singleStep">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>3</number>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_10">
+     <attribute name="title">
+      <string>Сечение</string>
+     </attribute>
+     <widget class="QTableWidget" name="table_section">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>370</y>
+        <width>1351</width>
+        <height>311</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_plot_section">
+      <property name="geometry">
+       <rect>
+        <x>1180</x>
+        <y>290</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Нарисовать</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_9">
+      <property name="geometry">
+       <rect>
+        <x>1210</x>
+        <y>700</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Генерация</string>
+      </property>
+     </widget>
+     <widget class="MatplotlibWidget" name="mpl_section">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>0</y>
+        <width>361</width>
+        <height>271</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Тип сечения</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="widget_list_type_section">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>20</y>
+        <width>111</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Прямоугольник</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Треугольник</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Круг</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Точка</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="button_add_section">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>280</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Добавить</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_load_section">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>280</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Загрузить</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_delete_section">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>310</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Удалить</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_save_section">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>310</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Сохранить</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>720</x>
+        <y>20</y>
+        <width>261</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Начальные деформации</string>
+      </property>
+      <widget class="QDoubleSpinBox" name="box_ry">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>100</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_e">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>20</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_36">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>60</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>1/rx</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_35">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>100</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>1/ry</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_34">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>20</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>e</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_rx">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>60</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>190</y>
+        <width>271</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Свойства сечения</string>
+      </property>
+      <widget class="QLabel" name="label_39">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>110</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Nx</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_37">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>20</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Материал</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="widget_list_material_for_section">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>20</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_38">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>70</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Nx</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_nx">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>70</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <double>2.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_ny">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>110</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <double>2.000000000000000</double>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>80</y>
+        <width>441</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Сечение</string>
+      </property>
+      <widget class="QDoubleSpinBox" name="box_y3">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>130</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_x1">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>50</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_29">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>1 точка</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_y1">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>50</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_x3">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>130</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_y2">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>90</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_32">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>2 точка</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_33">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>130</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>3 точка</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_x2">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>90</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_b">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>30</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>70</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>h, см</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_h">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>70</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_d">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>110</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_14">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>110</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>D, см</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>30</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>b, см</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_30">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>10</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>X</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_31">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>10</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Y</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_15">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>140</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>k</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="box_k">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>140</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabSolve">
+     <attribute name="title">
+      <string>Расчет</string>
+     </attribute>
+     <widget class="QGroupBox" name="boxPS2">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>10</y>
+        <width>331</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Расчет по трещиностойкости</string>
+      </property>
+      <widget class="QLabel" name="labelTypeSection_7">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>d</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>30</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="boxStatOpr_3">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>60</y>
+         <width>121</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>110</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>150</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>381</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Параметры расчета</string>
+      </property>
+      <widget class="QLabel" name="labelCode_8">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>60</y>
+         <width>161</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Макс. количество итераций</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleBoxTol">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>20</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="decimals">
+        <number>5</number>
+       </property>
+       <property name="minimum">
+        <double>0.000010000000000</double>
+       </property>
+       <property name="maximum">
+        <double>0.100000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.001000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.001000000000000</double>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelCode_5">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>20</y>
+         <width>71</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Точность</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="boxNum">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>80</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>10</number>
+       </property>
+       <property name="maximum">
+        <number>1000</number>
+       </property>
+       <property name="singleStep">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelTypeSection_6">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>20</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Решатель</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="boxStatOpr_2">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>50</y>
+         <width>121</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </item>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="boxPSD">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>140</y>
+        <width>381</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Расчет с учетом погибов</string>
+      </property>
+      <widget class="QDoubleSpinBox" name="doubleBoxLx">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>110</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="decimals">
+        <number>2</number>
+       </property>
+       <property name="minimum">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>20.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>1.000000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelCode_11">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>110</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Длина отн. Х, м</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleBoxLy">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>160</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="decimals">
+        <number>2</number>
+       </property>
+       <property name="minimum">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>20.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>1.000000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelCode_12">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>160</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Длина отн.Y, м</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleBoxL">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>210</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="decimals">
+        <number>2</number>
+       </property>
+       <property name="minimum">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>20.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>1.000000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelCode_13">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>210</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Длина факт, м</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxStatOpr">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>60</y>
+         <width>241</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Конструкция статически определима?</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabLoad">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <attribute name="title">
+      <string>Усилия</string>
+     </attribute>
+     <widget class="QTableWidget" name="tableLoad">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>1091</width>
+        <height>691</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>3</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>4</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>5</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>6</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>N, т</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Mx, т*м</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>My, т*м</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Nl, т</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Mxl, т*м</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Myl, т*м</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QSpinBox" name="boxCountLoad">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>1000</number>
+      </property>
+      <property name="singleStep">
+       <number>1</number>
+      </property>
+      <property name="value">
+       <number>6</number>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabCr1PS">
+     <attribute name="title">
+      <string>Усилия с учетом погибов</string>
+     </attribute>
+     <widget class="MatplotlibWidget" name="mplCrDShort">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>20</y>
+        <width>371</width>
+        <height>311</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableLoadPS1DShort">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>20</y>
+        <width>651</width>
+        <height>481</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>3</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>4</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>5</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>6</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>N, т</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Mx, т*м</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>My, т*м</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>N/Ncrx</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>N/Ncry</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>nux</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>nuy</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Mx, т*м</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>My, т*м</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>ex, м</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>ey, м</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>phiLx</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>phiLy</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>deltaEx</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>deltaEy</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Dx, т*м*м</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Dy, т*м*м</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Ncrx, т</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Ncry, т</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabResPS1">
+     <attribute name="title">
+      <string>Результаты</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1031</width>
+        <height>521</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Предельные кратк.</string>
+       </attribute>
+       <widget class="QTableWidget" name="tableResPS1Short">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>10</y>
+          <width>301</width>
+          <height>471</height>
+         </rect>
+        </property>
+        <row>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>2</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>3</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>4</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>5</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>6</string>
+         </property>
+        </row>
+        <column>
+         <property name="text">
+          <string>N, т</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Mx, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>My, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>N/Ncrx</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>N/Ncry</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>nux</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>nuy</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Mx, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>My, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ex, м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ey, м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>phiLx</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>phiLy</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>deltaEx</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>deltaEy</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Dx, т*м*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Dy, т*м*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Ncrx, т</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Ncry, т</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="MatplotlibWidget" name="mplResPS1Short">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>0</y>
+          <width>691</width>
+          <height>461</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBoxShort">
+        <property name="geometry">
+         <rect>
+          <x>650</x>
+          <y>460</y>
+          <width>151</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Деформации</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Напряжения</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QPushButton" name="buttonPlotPS1Short">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>460</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Нарисовать</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>Текущие кратк.</string>
+       </attribute>
+       <widget class="MatplotlibWidget" name="mplResPS1ShortCur">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>0</y>
+          <width>681</width>
+          <height>451</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonPlotPS1ShortCur">
+        <property name="geometry">
+         <rect>
+          <x>490</x>
+          <y>460</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Нарисовать</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableResPS1ShortCur">
+        <property name="geometry">
+         <rect>
+          <x>1</x>
+          <y>0</y>
+          <width>341</width>
+          <height>481</height>
+         </rect>
+        </property>
+        <row>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>2</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>3</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>4</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>5</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>6</string>
+         </property>
+        </row>
+        <column>
+         <property name="text">
+          <string>N, т</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Mx, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>My, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>N/Ncrx</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>N/Ncry</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>nux</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>nuy</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Mx, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>My, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ex, м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ey, м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>phiLx</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>phiLy</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>deltaEx</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>deltaEy</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Dx, т*м*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Dy, т*м*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Ncrx, т</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Ncry, т</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QComboBox" name="comboBoxShortCur">
+        <property name="geometry">
+         <rect>
+          <x>610</x>
+          <y>460</y>
+          <width>151</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Деформации</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Напряжения</string>
+         </property>
+        </item>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_5">
+       <attribute name="title">
+        <string>Трещины</string>
+       </attribute>
+       <widget class="MatplotlibWidget" name="mplResPS1Long">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>0</y>
+          <width>681</width>
+          <height>451</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableResPS1Long">
+        <property name="geometry">
+         <rect>
+          <x>1</x>
+          <y>0</y>
+          <width>341</width>
+          <height>481</height>
+         </rect>
+        </property>
+        <row>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>2</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>3</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>4</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>5</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>6</string>
+         </property>
+        </row>
+        <column>
+         <property name="text">
+          <string>N, т</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Mx, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>My, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>N/Ncrx</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>N/Ncry</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>nux</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>nuy</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Mx, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>My, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ex, м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ey, м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>phiLx</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>phiLy</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>deltaEx</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>deltaEy</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Dx, т*м*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Dy, т*м*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Ncrx, т</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Ncry, т</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QComboBox" name="comboBoxLong">
+        <property name="geometry">
+         <rect>
+          <x>610</x>
+          <y>460</y>
+          <width>151</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Деформации</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Напряжения</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QPushButton" name="buttonPlotPS1Long">
+        <property name="geometry">
+         <rect>
+          <x>490</x>
+          <y>460</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Нарисовать</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_9">
+       <attribute name="title">
+        <string>Итого</string>
+       </attribute>
+       <widget class="QTableWidget" name="tableSumResPS1">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>10</y>
+          <width>461</width>
+          <height>481</height>
+         </rect>
+        </property>
+        <row>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>2</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>3</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>4</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>5</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>6</string>
+         </property>
+        </row>
+        <column>
+         <property name="text">
+          <string>N, т</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Mx, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>My, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>N/Ncrx</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>N/Ncry</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>nux</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>nuy</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Mx, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>My, т*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ex, м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ey, м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>phiLx</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>phiLy</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>deltaEx</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>deltaEy</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Dx, т*м*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Dy, т*м*м</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Ncrx, т</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Ncry, т</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabCrNorm">
+     <attribute name="title">
+      <string>Графики</string>
+     </attribute>
+     <widget class="MatplotlibWidget" name="mplCrNorm">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>0</y>
+        <width>400</width>
+        <height>351</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableLoadPS2Norm">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>621</width>
+        <height>501</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>3</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>4</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>5</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>6</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>N, т</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Mx, т*м</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>My, т*м</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Nl, т</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Mxl, т*м</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Myl, т*м</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>410</y>
+        <width>62</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="doubleSpinBox_6">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>410</y>
+        <width>62</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="doubleSpinBox_7">
+      <property name="geometry">
+       <rect>
+        <x>810</x>
+        <y>410</y>
+        <width>62</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1425</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="action"/>
+    <addaction name="action_2"/>
+    <addaction name="action_3"/>
+    <addaction name="action_4"/>
+    <addaction name="action_8"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>Расчет</string>
+    </property>
+    <addaction name="menuSolve"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>Справка</string>
+    </property>
+    <addaction name="action_6"/>
+    <addaction name="action_7"/>
+    <addaction name="action_Qt"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action">
+   <property name="text">
+    <string>Создать</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>Открыть...</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="text">
+    <string>Сохранить как...</string>
+   </property>
+  </action>
+  <action name="action_4">
+   <property name="text">
+    <string>Сохранить</string>
+   </property>
+  </action>
+  <action name="menuSolve">
+   <property name="text">
+    <string>Расчет</string>
+   </property>
+  </action>
+  <action name="action_6">
+   <property name="text">
+    <string>Справка</string>
+   </property>
+  </action>
+  <action name="action_7">
+   <property name="text">
+    <string>О программе</string>
+   </property>
+  </action>
+  <action name="action_Qt">
+   <property name="text">
+    <string>о Qt</string>
+   </property>
+  </action>
+  <action name="action_8">
+   <property name="text">
+    <string>Выход</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MatplotlibWidget</class>
+   <extends>QWidget</extends>
+   <header>matplotlibwidget</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
