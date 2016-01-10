@@ -82,16 +82,22 @@ class Solves(object):
 
         Проверено, тесты не сделаны'''
         lst = self.formLst
-        matrS = np.array([[0], [0], [0], [0], [0], [0], [0]])
+        matrS = False
 
-        matrC = np.array([[0], [0], [0], [0], [0], [0], [0]])
+        matrC = False
         for i in lst:
             print i, 'sect'
             if self.lstMat[i.mat].type_material == rcMaterial.type_material['steel']:
                 #                print 'tut'
-                matrS = np.concatenate((matrS, i.mesh()), axis=1)
+                if matrS == False:
+                    matrS = i.mesh()
+                else:
+                    matrS = np.concatenate((matrS, i.mesh()), axis=1)
             else:
-                matrC = np.concatenate((matrC, i.mesh()), axis=1)
+                if matrC == False:
+                    matrC = i.mesh()
+                else:
+                    matrC = np.concatenate((matrC, i.mesh()), axis=1)
 
         x, y = self.centerMass()
 
@@ -978,7 +984,7 @@ class Solves(object):
 
         EbJx, EbJy, EsJx, EsJy = self.EJ()
 
-        def nu(n, mx, mxl, typStat, lx, l, typD, eax, b):
+        def nu(n, mx, mxl, typStat, lx, l, typD, eax, b, typ_x):
             # закольцовываем расчет
             # определяем усилие при N:
             error = False
@@ -1039,8 +1045,14 @@ class Solves(object):
                     lstmxmxl = []
 
                     matrS = np.transpose(self.elemMatrS)
+
+                    if typ_x == 'x':
+                        xy = 0
+                    elif typ_x == 'y':
+                        xy = 1
                     for i in matrS:
-                        lstmxmxl.append((Mxl + nl * i[0] / 100.) / (Mx + n * i[0] / 100.))
+                        mxml = (Mxl - nl * i[xy] / 100.) / (Mx - n * i[xy] / 100.)
+                        lstmxmxl.append(mxml)
 
                     phiLx = max(lstmxmxl) + 1.
 
@@ -1055,9 +1067,14 @@ class Solves(object):
 
                 deltaEx = max(deltaEx, 0.15)
 
+                deltaEx = min(deltaEx, 1.5)
+
                 kbx = 0.15 / (phiLx * (0.3 + deltaEx))
 
-                Dx = (kbx * EbJx + 0.7 * EsJx) / 1000. / 100. / 100.
+                if typ_x == 'x':
+                    Dx = (kbx * EbJx + 0.7 * EsJx) / 1000. / 100. / 100.
+                else:
+                    Dx = (kbx * EbJy + 0.7 * EsJy) / 1000. / 100. / 100.
 
                 if lx == 0:
                     Ncrx = 0
@@ -1080,8 +1097,10 @@ class Solves(object):
         out = []
         for nmxmy in lstNMxMy:
             n, mx, my, nl, mxl, myl = nmxmy
-            MxNux, kcrNx, nux, Mx, ex, phiLx, deltaEx, Dx, Ncrx, errorX = nu(n, mx, mxl, typStat, lx, l, typD, eax, b)
-            MyNuy, kcrNy, nuy, My, ey, phiLy, deltaEy, Dy, Ncry, errory = nu(n, my, myl, typStat, ly, l, typD, eay, h)
+            MxNux, kcrNx, nux, Mx, ex, phiLx, deltaEx, Dx, Ncrx, errorX = nu(n, mx, mxl, typStat, lx, l, typD, eax, b,
+                                                                             'x')
+            MyNuy, kcrNy, nuy, My, ey, phiLy, deltaEy, Dy, Ncry, errory = nu(n, my, myl, typStat, ly, l, typD, eay, h,
+                                                                             'y')
             if errorX == True or errory == True:
                 error = True
 
@@ -1092,10 +1111,8 @@ class Solves(object):
         return [out, error, title]
 
 
-if __name__ == "__main__":
-    class Test_rcSolves(unittest.TestCase):
-        lst_nmxmy = [[-5.0, 5.0, 4.0, -4.0, 5.0, 6.0]]
-
+class Test_rcSolves(unittest.TestCase):
+    def setUp(self):
         mat1 = {'e': 300000.0, 'name': QtCore.QString(u'B25'), 'creep_crack': None, 'creep_deform': None,
                 'e_crit': 0.007, 'e0_ult': 0.002, 'creep_ps1': None, 'data_table_ps2': [],
                 'data_table_ps1': np.array([[1., 4.],
@@ -1103,7 +1120,8 @@ if __name__ == "__main__":
                                             [3., 6.]]), 'e_ult': 0.0035, 'et': 0.00015, 'type_material': 1,
                 'data_table_ps2_long': []}
 
-        mat2 = {'e': 2100000.0, 'name': QtCore.QString(u'A400'), 'creep_crack': 0, 'creep_deform': 1, 'e_crit': 0.05,
+        mat2 = {'e': 2100000.0, 'name': QtCore.QString(u'A400'), 'creep_crack': 0, 'creep_deform': 1,
+                'e_crit': 0.05,
                 'e0_ult': None, 'creep_ps1': 0, 'data_table_ps2': [], 'data_table_ps1': np.array([[1., 4.],
                                                                                                   [2., 5.],
                                                                                                   [3., 6.]]),
@@ -1115,14 +1133,17 @@ if __name__ == "__main__":
         lst_sect = [{'b': 40.0, 'e': 0.0, 'mat': QtCore.QString(u'B25'), 'y1': 0.0,
                      'type_section': QtCore.QString(
                              u'Прямоугольник'), 'h': 50.0,
-                     'k': 1.0, 'rx': 0.0, 'ry': 0.0, 'nx': 10.0, 'ny': 10.0, 'x2': 0.0, 'x3': 0.0, 'y3': 0.0, 'y2': 0.0,
+                     'k': 1.0, 'rx': 0.0, 'ry': 0.0, 'nx': 10.0, 'ny': 10.0, 'x2': 0.0, 'x3': 0.0, 'y3': 0.0,
+                     'y2': 0.0,
                      'x1': 0.0, 'd': 0.0},
                     {'b': 0.0, 'e': 0.0, 'mat': QtCore.QString(u'A400'), 'y1': 5.0,
                      'type_section': QtCore.QString(u'Точка'), 'h': 0.0, 'k': 1.0, 'rx': 0.0,
-                     'ry': 0.0, 'nx': 2.0, 'ny': 2.0, 'x2': 0.0, 'x3': 0.0, 'y3': 0.0, 'y2': 0.0, 'x1': 5.0, 'd': 1.0},
+                     'ry': 0.0, 'nx': 2.0, 'ny': 2.0, 'x2': 0.0, 'x3': 0.0, 'y3': 0.0, 'y2': 0.0, 'x1': 5.0,
+                     'd': 1.0},
                     {'b': 0.0, 'e': 0.0, 'mat': QtCore.QString(u'A400'), 'y1': 35.0,
                      'type_section': QtCore.QString(u'Точка'), 'h': 0.0, 'k': 1.0, 'rx': 0.0,
-                     'ry': 0.0, 'nx': 2.0, 'ny': 2.0, 'x2': 0.0, 'x3': 0.0, 'y3': 0.0, 'y2': 0.0, 'x1': 35.0, 'd': 1.0}
+                     'ry': 0.0, 'nx': 2.0, 'ny': 2.0, 'x2': 0.0, 'x3': 0.0, 'y3': 0.0, 'y2': 0.0, 'x1': 35.0,
+                     'd': 1.0}
                     ]
 
         rcsolve = Solves()
@@ -1133,13 +1154,64 @@ if __name__ == "__main__":
 
         rcsolve.formGenSC()
 
-        print rcsolve.elemMatrC
+        self.rcsolve = rcsolve
+
+    def test_xy_1(self):
+        x, y = self.rcsolve.centerMass()
+
+        self.assertEquals(x, 20)
+        self.assertEquals(y, 25)
+
+    def test_EJ(self):
+        EbJx, EbJy, EsJx, EsJy = self.rcsolve.EJ()
+
+        self.assertLess((EbJx - 40 ** 3 * 50 / 12. * 3e5) / EbJx, 0.001)
+        self.assertLess((EbJy - 50 ** 3 * 40 / 12. * 3e5) / EbJy, 0.001)
+
+    def test_nuD(self):
+        lst_nmxmy = [[-5.0, 5.0, 4.0, -4.0, 5.0, 6.0]]
+
+        print self.rcsolve.elemMatrC
         typD = True
-        typStat = True
+        typStat = False
         lx = 8
         ly = 9
         l = 7
 
         # print typD, typStat, lx, ly, l
-        outD, error, titleD = rcsolve.nuD(lst_nmxmy, typStat, lx, ly, l, typD)
-        print outD
+
+        outD, error, titleD = self.rcsolve.nuD(lst_nmxmy, typStat, lx, ly, l, typD)
+        for x, y in zip(outD[0], titleD):
+            print x, y
+
+        self.assertEquals(outD[0][0], -5.0)
+        self.assertLess((outD[0][1] - 5.46) / outD[0][1], 0.001)
+        self.assertLess((outD[0][2] - 4.31) / outD[0][2], 0.001)
+
+        self.assertLess((outD[0][3] - 0.085) / outD[0][3], 0.01)
+        self.assertLess((outD[0][4] - 0.071) / outD[0][4], 0.01)
+
+        self.assertLess((outD[0][5] - 1.091) / outD[0][5], 0.01)
+        self.assertLess((outD[0][6] - 1.077) / outD[0][6], 0.01)
+
+        self.assertLess((outD[0][7] - 5) / outD[0][7], 0.01)
+        self.assertLess((outD[0][8] - 4) / outD[0][8], 0.01)
+
+        self.assertLess((outD[0][9] + 1) / outD[0][9], 0.01)
+        self.assertLess((outD[0][10] + 0.8) / outD[0][10], 0.01)
+
+        self.assertLess((outD[0][11] - 2) / outD[0][11], 0.01)
+        self.assertLess((outD[0][12] - 2) / outD[0][12], 0.01)
+
+        self.assertLess((outD[0][13] - 1.5) / outD[0][13], 0.01)
+        self.assertLess((outD[0][14] - 1.5) / outD[0][14], 0.01)
+
+        self.assertLess((outD[0][15] - 387) / outD[0][15], 0.01)
+        self.assertLess((outD[0][16] - 576) / outD[0][16], 0.01)
+
+        self.assertLess((outD[0][17] - 59.7) / outD[0][17], 0.01)
+        self.assertLess((outD[0][18] - 70.2) / outD[0][18], 0.01)
+
+
+if __name__ == "__main__":
+    unittest.main()
