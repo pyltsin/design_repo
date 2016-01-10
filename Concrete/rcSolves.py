@@ -894,8 +894,6 @@ class Solves(object):
                 kk.append(item[0])
                 klst.append(item)
 
-
-                #        print 'kk', kk
         k = max(kk)
 
         return k, klst
@@ -904,16 +902,25 @@ class Solves(object):
         '''возвращает EJ:
         EbJx, EbJy, EsJx, EsJy'''
         # TODO сделать чтобы считалось один раз и записывалось в переменную. Сделать точный расчет.
-        matrEbJx = self.elemMatrC[0] * self.elemMatrC[0] * self.elemMatrC[2]
+
+
+        matrBoolC = []
+        matrBoolS = []
+        for i in range(len(self.elemMatrC[0])):
+            matrBoolC.append(self.lstMat[self.elemMatrC[3][i]].e)
+        for i in range(len(self.elemMatrS[0])):
+            matrBoolS.append(self.lstMat[self.elemMatrS[3][i]].e)
+
+        matrEbJx = self.elemMatrC[0] * self.elemMatrC[0] * self.elemMatrC[2] * matrBoolC
         EbJx = matrEbJx.sum()
 
-        matrEbJy = self.elemMatrC[1] * self.elemMatrC[1] * self.elemMatrC[2]
+        matrEbJy = self.elemMatrC[1] * self.elemMatrC[1] * self.elemMatrC[2] * matrBoolC
         EbJy = matrEbJy.sum()
 
-        matrEsJx = self.elemMatrS[0] * self.elemMatrS[0] * self.elemMatrS[2]
+        matrEsJx = self.elemMatrS[0] * self.elemMatrS[0] * self.elemMatrS[2] * matrBoolS
         EsJx = matrEsJx.sum()
 
-        matrEsJy = self.elemMatrS[1] * self.elemMatrS[1] * self.elemMatrS[2]
+        matrEsJy = self.elemMatrS[1] * self.elemMatrS[1] * self.elemMatrS[2] * matrBoolS
         EsJy = matrEsJy.sum()
 
         return EbJx, EbJy, EsJx, EsJy
