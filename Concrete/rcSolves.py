@@ -1026,7 +1026,7 @@ class Solves(object):
 
                     matrS = np.transpose(self.elemMatrS)
                     for i in matrS:
-                        lstmxmxl.append((Mx + n * i[0] / 100.) / (Mxl + nl * i[0] / 100.))
+                        lstmxmxl.append((Mxl + nl * i[0] / 100.) / (Mx + n * i[0] / 100.))
 
                     phiLx = max(lstmxmxl) + 1.
 
