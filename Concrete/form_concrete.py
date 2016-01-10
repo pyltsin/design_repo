@@ -15,7 +15,8 @@ from matplotlib.mlab import griddata
 import rcMaterial
 import numpy as np
 from PyQt4 import QtGui, QtCore, uic
-
+from rcMesh import EmptySections as Sections
+from rcMaterial import EmptyMaterials as Materials
 import rcSolves
 
 __author__ = 'Pyltsin'
@@ -701,20 +702,6 @@ def is_number(s):
         return True
     except ValueError:
         return False
-
-
-class Materials(object):
-    """просто болванка, для хранения, обработка после передачи ее в rcMaterial"""
-
-    def __init__(self, *args, **kwargs):
-        self.args = args
-        self.kwargs = kwargs
-
-
-class Sections(object):
-    def __init__(self, *args, **kwargs):
-        self.args = args
-        self.kwargs = kwargs
 
 
 if __name__ == "__main__":

@@ -8,6 +8,12 @@ import unittest
 import numpy as np
 
 
+class EmptySections(object):
+    def __init__(self, *args, **kwargs):
+        self.args = args
+        self.kwargs = kwargs
+
+
 class Rectangles(object):
     '''Меш прямоугольников
     lstXY - список 2 точек [[0,0],[5,5]]

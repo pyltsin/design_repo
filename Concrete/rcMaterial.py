@@ -12,13 +12,24 @@ import unittest
 type_material = {'steel': 0, 'concrete': 1}
 
 
+class EmptyMaterials(object):
+    """просто болванка, для хранения, обработка после передачи ее в rcMaterial"""
+
+    def __init__(self, *args, **kwargs):
+        self.args = args
+        self.kwargs = kwargs
+
+
 class GeneralMaterial(object):
     '''возвращает функцию по интерполяции по графику (общему)
 typPS - тип предельного состояния'''
 
     def __init__(self, matObject):
         '''инициация материала из словаря'''
-        dictMat = matObject.kwargs
+        if isinstance(matObject, EmptyMaterials):
+            dictMat = matObject.kwargs
+        else:
+            dictMat = matObject
 
         self.name = dictMat["name"]  # название материала
         self.type_material = dictMat["type_material"]  # "steel" , "concrete"

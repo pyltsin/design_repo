@@ -30,7 +30,7 @@
      <set>Qt::ImhNone</set>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabInputData">
      <attribute name="title">
@@ -1238,6 +1238,9 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="decimals">
+        <number>0</number>
+       </property>
        <property name="minimum">
         <double>2.000000000000000</double>
        </property>
@@ -1250,6 +1253,9 @@
          <width>62</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="decimals">
+        <number>0</number>
        </property>
        <property name="minimum">
         <double>2.000000000000000</double>
@@ -1277,6 +1283,9 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="decimals">
+        <number>1</number>
+       </property>
       </widget>
       <widget class="QDoubleSpinBox" name="box_x1">
        <property name="geometry">
@@ -1286,6 +1295,9 @@
          <width>62</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="decimals">
+        <number>1</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_29">
@@ -1310,6 +1322,9 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="decimals">
+        <number>1</number>
+       </property>
       </widget>
       <widget class="QDoubleSpinBox" name="box_x3">
        <property name="geometry">
@@ -1320,6 +1335,9 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="decimals">
+        <number>1</number>
+       </property>
       </widget>
       <widget class="QDoubleSpinBox" name="box_y2">
        <property name="geometry">
@@ -1329,6 +1347,9 @@
          <width>62</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="decimals">
+        <number>1</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_32">
@@ -1366,6 +1387,9 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="decimals">
+        <number>1</number>
+       </property>
       </widget>
       <widget class="QDoubleSpinBox" name="box_b">
        <property name="geometry">
@@ -1375,6 +1399,9 @@
          <width>62</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="decimals">
+        <number>0</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_13">
@@ -1399,6 +1426,9 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="decimals">
+        <number>0</number>
+       </property>
       </widget>
       <widget class="QDoubleSpinBox" name="box_d">
        <property name="geometry">
@@ -1408,6 +1438,9 @@
          <width>62</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="decimals">
+        <number>1</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_14">
@@ -1483,6 +1516,9 @@
          <width>62</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="decimals">
+        <number>1</number>
        </property>
       </widget>
      </widget>
@@ -1959,131 +1995,6 @@
         <height>481</height>
        </rect>
       </property>
-      <row>
-       <property name="text">
-        <string>1</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>2</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>3</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>4</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>5</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>6</string>
-       </property>
-      </row>
-      <column>
-       <property name="text">
-        <string>N, т</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Mx, т*м</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>My, т*м</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>N/Ncrx</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>N/Ncry</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>nux</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>nuy</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Mx, т*м</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>My, т*м</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>ex, м</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>ey, м</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>phiLx</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>phiLy</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>deltaEx</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>deltaEy</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Dx, т*м*м</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Dy, т*м*м</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Ncrx, т</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Ncry, т</string>
-       </property>
-      </column>
      </widget>
     </widget>
     <widget class="QWidget" name="tabResPS1">

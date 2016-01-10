@@ -7,7 +7,8 @@ Created on Fri Nov 07 23:42:52 2014
 import numpy as np
 import rcMaterial
 import rcMesh
-from PyQt4 import QtGui, QtCore, uic
+from PyQt4 import QtGui, QtCore
+import unittest
 
 
 class Solves(object):
@@ -24,7 +25,12 @@ class Solves(object):
         lst_section = []
         for section_raw in lst:
 
+            if isinstance(section_raw, dict):
+                tmp_class = rcMesh.EmptySections
+                tmp_class.kwargs = section_raw
+                section_raw = tmp_class
             material_section = section_raw.kwargs["mat"]
+
             name_material = [mat.name for mat in self.lstMat]
 
             mat = name_material.index(material_section)
@@ -907,9 +913,9 @@ class Solves(object):
         matrBoolC = []
         matrBoolS = []
         for i in range(len(self.elemMatrC[0])):
-            matrBoolC.append(self.lstMat[self.elemMatrC[3][i]].e)
+            matrBoolC.append(self.lstMat[int(self.elemMatrC[3][i])].e)
         for i in range(len(self.elemMatrS[0])):
-            matrBoolS.append(self.lstMat[self.elemMatrS[3][i]].e)
+            matrBoolS.append(self.lstMat[int(self.elemMatrS[3][i])].e)
 
         matrEbJx = self.elemMatrC[0] * self.elemMatrC[0] * self.elemMatrC[2] * matrBoolC
         EbJx = matrEbJx.sum()
@@ -1075,7 +1081,7 @@ class Solves(object):
         for nmxmy in lstNMxMy:
             n, mx, my, nl, mxl, myl = nmxmy
             MxNux, kcrNx, nux, Mx, ex, phiLx, deltaEx, Dx, Ncrx, errorX = nu(n, mx, mxl, typStat, lx, l, typD, eax, b)
-            MyNuy, kcrNy, nuy, My, ey, phiLy, deltaEy, Dy, Ncry, errory = nu(n, my, myl, typStat, ly, l, typD, eax, b)
+            MyNuy, kcrNy, nuy, My, ey, phiLy, deltaEy, Dy, Ncry, errory = nu(n, my, myl, typStat, ly, l, typD, eay, h)
             if errorX == True or errory == True:
                 error = True
 
@@ -1087,130 +1093,53 @@ class Solves(object):
 
 
 if __name__ == "__main__":
-    lstForm = [
-        ['Rectangle', [[0., 0.], [50., 50.]], [30., 30.], 0, 1, [0, 0, 0]],
-        ['Circle', [5, 5, 2], [], 1, 1, [0, 0, 0]],
-        ['Circle', [45, 45, 2], [], 1, 1, [0, 0, 0]],
-        ['Circle', [45, 5, 2], [], 1, 1, [0, 0, 0]],
-        ['Circle', [5, 45, 2], [], 1, 1, [0, 0, 0]]
-    ]
+    class Test_rcSolves(unittest.TestCase):
+        lst_nmxmy = [[-5.0, 5.0, 4.0, -4.0, 5.0, 6.0]]
 
-    sol = Solves()
-    sol.loadForm(lstForm)
-    #    print a
+        mat1 = {'e': 300000.0, 'name': QtCore.QString(u'B25'), 'creep_crack': None, 'creep_deform': None,
+                'e_crit': 0.007, 'e0_ult': 0.002, 'creep_ps1': None, 'data_table_ps2': [],
+                'data_table_ps1': np.array([[1., 4.],
+                                            [2., 5.],
+                                            [3., 6.]]), 'e_ult': 0.0035, 'et': 0.00015, 'type_material': 1,
+                'data_table_ps2_long': []}
 
-    conc = rcMaterial.Concrete()
-    conc.norme = 52
-    conc.b = 25
-    conc.initProperties()
-    conc.functDia(typDia=3, typPS=1, typTime='short', typR=3, typRT=2)
-    #    print conc.x,conc.y
-    rein = rcMaterial.Reinforced()
-    rein.norme = 52
-    rein.typ = 'A'
-    rein.a = 400
-    rein.initProperties()
-    rein.functDia(typPS=1)
-    #    print rein.x, rein.y
-    lstMat = [conc, rein]
+        mat2 = {'e': 2100000.0, 'name': QtCore.QString(u'A400'), 'creep_crack': 0, 'creep_deform': 1, 'e_crit': 0.05,
+                'e0_ult': None, 'creep_ps1': 0, 'data_table_ps2': [], 'data_table_ps1': np.array([[1., 4.],
+                                                                                                  [2., 5.],
+                                                                                                  [3., 6.]]),
+                'e_ult': 0.025,
+                'et': None, 'type_material': 0, 'data_table_ps2_long': []}
 
-    sol.loadMat(lstMat)
+        lst_mat = [mat2, mat1]
 
-    sol.formGen()
-    lst = sol.elemMatr
-    a = lst[2].sum()
+        lst_sect = [{'b': 40.0, 'e': 0.0, 'mat': QtCore.QString(u'B25'), 'y1': 0.0,
+                     'type_section': QtCore.QString(
+                             u'Прямоугольник'), 'h': 50.0,
+                     'k': 1.0, 'rx': 0.0, 'ry': 0.0, 'nx': 10.0, 'ny': 10.0, 'x2': 0.0, 'x3': 0.0, 'y3': 0.0, 'y2': 0.0,
+                     'x1': 0.0, 'd': 0.0},
+                    {'b': 0.0, 'e': 0.0, 'mat': QtCore.QString(u'A400'), 'y1': 5.0,
+                     'type_section': QtCore.QString(u'Точка'), 'h': 0.0, 'k': 1.0, 'rx': 0.0,
+                     'ry': 0.0, 'nx': 2.0, 'ny': 2.0, 'x2': 0.0, 'x3': 0.0, 'y3': 0.0, 'y2': 0.0, 'x1': 5.0, 'd': 1.0},
+                    {'b': 0.0, 'e': 0.0, 'mat': QtCore.QString(u'A400'), 'y1': 35.0,
+                     'type_section': QtCore.QString(u'Точка'), 'h': 0.0, 'k': 1.0, 'rx': 0.0,
+                     'ry': 0.0, 'nx': 2.0, 'ny': 2.0, 'x2': 0.0, 'x3': 0.0, 'y3': 0.0, 'y2': 0.0, 'x1': 35.0, 'd': 1.0}
+                    ]
 
-    xmatr = sol.xmatr
-    #    print xmatr
+        rcsolve = Solves()
 
-    ymatr = sol.ymatr
-    #    print ymatr
-    kymatr = sol.kymatr
-    yEvmatr = sol.yEvmatr
-    kyEvmatr = sol.kyEvmatr
-    #    print 'tt1', sol.e0rxry2nmxmy([-0.00034524213289891469, 2.1031719114007239e-05, 0.00010515859557003618])
-    #    print 'tt2', sol.e0rxry2nmxmy([-1.525417962731393e-05, 2.3231638802484486e-05, 0.00011615819401242296])
+        rcsolve.load_list_materials(lst_mat)
 
-    #    nmxmy=[-100000,0.0,0.0]
-    #    nmxmy=[-200000.,600000.,1000000.] #- [-200000,600000,1000000] - граничное ошибка
-    nmxmy = [0, 0, 2]
+        rcsolve.load_list_section(lst_sect)
 
-    #    nmxmy=[-22305*2,1110*2,223000*2]
-    #    nmxmy=[-100,500,2500]
-    #    nmxmy=[-200000,1000000,40000400]
+        rcsolve.formGenSC()
 
-    #    out=sol.nmxmy2e0rxry(nmxmy, 100, 0.00001)
-    ##    print 'out', out
-    #
-    #    e0rxry=[out[0],out[1],out[2]]
-    ##    print 'e0rxry11', e0rxry
-    #    out=sol.e0rxry2nmxmy(e0rxry)
-    #
-    #    e=np.reshape(out[4][0:100], (10, 10))
-    #    sigma=np.reshape(out[3][0:100], (10, 10))
-    #    print out[0:3]
-    #    e0rxry=sol.nmxmy2e0rxry(nmxmy,1000,0.0001)
-    #    print 'e0rxry', e0rxry[0:3]
-    #    print 'kk' , sol.kk(e0rxry[0:3])
-    #    for i in range(100):
-    kk1 = sol.findKult9(nmxmy, 100, 0.001)
-    #        kk2=sol.findKult7(nmxmy, 100,0.001)
+        print rcsolve.elemMatrC
+        typD = True
+        typStat = True
+        lx = 8
+        ly = 9
+        l = 7
 
-    # пока рабочее - 7 вариант
-    #
-    print 'kult', kk1
-    #    print 'kult', kk2
-    e0rxry = kk1[3]
-    out = sol.e0rxry2nmxmy(e0rxry)
-    #    print out[0], out[1] , out[2]
-    #
-    #    '''проверка скорости ключевой функции'''
-    #
-    from mpl_toolkits.mplot3d import Axes3D
-    from matplotlib import cm
-    from matplotlib.ticker import LinearLocator, FormatStrFormatter
-    import matplotlib.pyplot as plt
-    from matplotlib.mlab import griddata
-
-    fig = plt.figure()
-    ax = fig.gca(projection='3d')
-    X = sol.elemMatr[0][0:900]
-    Y = sol.elemMatr[1][0:900]
-    Z = out[3][0:900]
-    #    surf = ax.plot_surface(X, Y, Z)
-    surf = ax.plot_trisurf(X, Y, Z, cmap=cm.terrain, linewidth=0.1)
-    #    Xtr=np.reshape(X, (30, 30))
-    #    Ytr=np.reshape(Y, (30, 30))
-    #    Ztr=np.reshape(Z, (30, 30))
-    #
-    #    surf = ax.plot_surface(Xtr, Ytr, Ztr, rstride=1, cstride=1, cmap=cm.coolwarm, linewidth=0, antialiased=False)
-    ##    ax.set_zlim(-200, 200)
-    #
-    #    ax.zaxis.set_major_locator(LinearLocator(20))
-    #    ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
-    #
-    #    fig.colorbar(surf)
-    ##    CS = plt.contour(X, Y, Z, 15, linewidths=0.5, colors='k')
-    ##
-    plt.show()
-    ##
-    ##
-    ##    import matplotlib.tri as tri
-    ##    triang = tri.Triangulation(X, Y)
-    ##    plt.figure()
-    ##    plt.gca().set_aspect('equal')
-    ##    plt.tripcolor(triang, Z, shading='flat', cmap=plt.cm.rainbow)
-    ##    plt.colorbar()
-    ##    plt.title('tripcolor of Delaunay triangulation, flat shading')
-    ##    plt.show()
-    ###    for i in range(10000):
-    ###
-    ###
-    ###        nmxmy=[-1,0,0]
-    ###
-    ###        sol.nmxmy2e0rxry(nmxmy,100,0.001)
-    ###
-    ###    nmxmy=[-2,0,0]
-    ###
-    ###    print sol.nmxmy2e0rxry(nmxmy,100,0.001)
-    ##print 'ok'
+        # print typD, typStat, lx, ly, l
+        outD, error, titleD = rcsolve.nuD(lst_nmxmy, typStat, lx, ly, l, typD)
+        print outD
