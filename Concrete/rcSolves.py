@@ -921,9 +921,10 @@ class Solves(object):
     def nuD(self, lstNMxMy, typStat, lx, ly, l, typD):
         '''расчет внецентреного сжатия'''
 
-        title = ['N, т', 'MxNux, т*м', 'MyNuy, т*м', 'kcrNx', 'kcrNy', 'nux', 'nuy', 'Mx, т*м', 'My, т*м', 'ex, м',
-                 'ey, м', 'phiLx', 'phiLy', 'deltaEx', 'deltaEy', 'Dx, т*м*м', 'Dy, т*м*м',
-                 'Ncrx, т', 'Ncry, т']
+        title = [u'N, т', u'MxNux, т*м', u'MyNuy, т*м', u'kcrNx', u'kcrNy', u'nux', u'nuy', u'Mx, т*м', u'My, т*м',
+                 u'ex, м',
+                 u'ey, м', u'phiLx', u'phiLy', u'deltaEx', u'deltaEy', u'Dx, т*м*м', u'Dy, т*м*м',
+                 u'Ncrx, т', u'Ncry, т']
 
         #        сначала определяем e0 в см
         e01 = 0.01
