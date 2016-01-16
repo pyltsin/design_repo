@@ -170,9 +170,9 @@ class Solves(object):
         lstx = []
         lsty = []
         lstky = []
-        lstyEv = []
-        lstkyEv = []
-        lstdx = []
+        # lstyEv = []
+        # lstkyEv = []
+        # lstdx = []
 
         for i in lstMat:
             if len(i.x) > maxx:
@@ -181,9 +181,9 @@ class Solves(object):
             lstx.append(i.x)
             lsty.append(i.y)
             lstky.append(i.ky)
-            lstyEv.append(i.yEv)
-            lstkyEv.append(i.kyEv)
-            lstdx.append(i.dx)
+            # lstyEv.append(i.yEv)
+            # lstkyEv.append(i.kyEv)
+            # lstdx.append(i.dx)
 
         '''приводим все к одному значению'''
         for j in range(len(lstx)):
@@ -192,8 +192,8 @@ class Solves(object):
                     lstx[j] = np.append(lstx[j], lstx[j][-1])
                     lsty[j] = np.append(lsty[j], lsty[j][-1])
                     lstky[j] = np.append(lstky[j], lstky[j][-1])
-                    lstyEv[j] = np.append(lstyEv[j], lstyEv[j][-1])
-                    lstkyEv[j] = np.append(lstkyEv[j], lstkyEv[j][-1])
+                    # lstyEv[j] = np.append(lstyEv[j], lstyEv[j][-1])
+                    # lstkyEv[j] = np.append(lstkyEv[j], lstkyEv[j][-1])
 
         '''теперь создаем матрицу соответствующую № массива'''
 
@@ -202,10 +202,10 @@ class Solves(object):
         ymatr = None
         kymatr = None
 
-        yEvmatr = None
-        kyEvmatr = None
-
-        dxmatr = None
+        # yEvmatr = None
+        # kyEvmatr = None
+        #
+        # dxmatr = None
 
         for i in self.formLst:
             ln = i.ln()
@@ -217,10 +217,10 @@ class Solves(object):
             xmatrTemp = xmatrTemp[0]
             xmatrTemp = xmatrTemp.transpose()
 
-            dxmatrTemp = np.array(lstdx[i.mat])
-            dxmatrTemp = np.meshgrid(dxmatrTemp, xone)
-            dxmatrTemp = dxmatrTemp[0]
-            dxmatrTemp = dxmatrTemp.transpose()
+            # dxmatrTemp = np.array(lstdx[i.mat])
+            # dxmatrTemp = np.meshgrid(dxmatrTemp, xone)
+            # dxmatrTemp = dxmatrTemp[0]
+            # dxmatrTemp = dxmatrTemp.transpose()
 
             ymatrTemp = np.array(lsty[i.mat])
             ymatrTemp = np.meshgrid(ymatrTemp, xone)
@@ -232,41 +232,41 @@ class Solves(object):
             kymatrTemp = kymatrTemp[0]
             kymatrTemp = kymatrTemp.transpose()
 
-            yEvmatrTemp = np.array(lstyEv[i.mat])
-            yEvmatrTemp = np.meshgrid(yEvmatrTemp, xone)
-            yEvmatrTemp = yEvmatrTemp[0]
-            yEvmatrTemp = yEvmatrTemp.transpose()
-
-            kyEvmatrTemp = np.array(lstkyEv[i.mat])
-            kyEvmatrTemp = np.meshgrid(kyEvmatrTemp, xone)
-            kyEvmatrTemp = kyEvmatrTemp[0]
-            kyEvmatrTemp = kyEvmatrTemp.transpose()
+            # yEvmatrTemp = np.array(lstyEv[i.mat])
+            # yEvmatrTemp = np.meshgrid(yEvmatrTemp, xone)
+            # yEvmatrTemp = yEvmatrTemp[0]
+            # yEvmatrTemp = yEvmatrTemp.transpose()
+            #
+            # kyEvmatrTemp = np.array(lstkyEv[i.mat])
+            # kyEvmatrTemp = np.meshgrid(kyEvmatrTemp, xone)
+            # kyEvmatrTemp = kyEvmatrTemp[0]
+            # kyEvmatrTemp = kyEvmatrTemp.transpose()
 
             if xmatr is None:
                 xmatr = xmatrTemp
-                dxmatr = dxmatrTemp
+                # dxmatr = dxmatrTemp
 
                 ymatr = ymatrTemp
                 kymatr = kymatrTemp
-                yEvmatr = yEvmatrTemp
-                kyEvmatr = kyEvmatrTemp
+                # yEvmatr = yEvmatrTemp
+                # kyEvmatr = kyEvmatrTemp
 
             else:
                 xmatr = np.hstack((xmatr, xmatrTemp))
-                dxmatr = np.hstack((dxmatr, dxmatrTemp))
+                # dxmatr = np.hstack((dxmatr, dxmatrTemp))
                 #                print ymatr, ymatrTemp
                 ymatr = np.hstack((ymatr, ymatrTemp))
                 kymatr = np.hstack((kymatr, kymatrTemp))
-                yEvmatr = np.hstack((yEvmatr, yEvmatrTemp))
-                kyEvmatr = np.hstack((kyEvmatr, kyEvmatrTemp))
+                # yEvmatr = np.hstack((yEvmatr, yEvmatrTemp))
+                # kyEvmatr = np.hstack((kyEvmatr, kyEvmatrTemp))
 
         self.xmatr = xmatr
         self.ymatr = ymatr
         self.kymatr = kymatr
-        self.yEvmatr = yEvmatr
-        self.kyEvmatr = kyEvmatr
-        #        print self.xmatr
-        self.dxmatr = np.array(dxmatr)
+        # self.yEvmatr = yEvmatr
+        # self.kyEvmatr = kyEvmatr
+        # #        print self.xmatr
+        # self.dxmatr = np.array(dxmatr)
 
     def centerMass(self):
         '''возвращает координаты центра массы
@@ -287,8 +287,7 @@ class Solves(object):
         return x, y
 
     def e0rxry2e(self, e0=0, rx=0, ry=0):
-        '''создаем матрицу e
-        проверено - тестов нет'''
+        '''создаем матрицу e на основе e0, rx, ry'''
         elemMatr = self.elemMatr  # копируем матрицу, чтобы не испортить старую
         one = np.ones(elemMatr.shape[1])  # создаем матрицу 1 длиной с количества точек e
 
@@ -298,7 +297,7 @@ class Solves(object):
 
     def e2d(self, ee):
         ''''возвращаем d от e - матрицы списка перемещений'''
-        ev = self.e2ev4(ee)  # вернули матрицу e*v
+        ev = self.e2ev4(ee)[0]  # вернули матрицу e*v
         d33 = self.elemMatr[2] * ev
         d13 = d33 * self.elemMatr[0]
         d23 = d33 * self.elemMatr[1]
@@ -351,48 +350,31 @@ class Solves(object):
     #
     '''Версия 4 интерполяции - через функцию здесь'''
 
-    def e2sigma4(self, e):
-        '''e - матрица e
-        проверено - тестов нет'''
-        #        import time
-        #        startTime=time.time()
-        xmatr = self.xmatr.copy()
-        ymatr = self.ymatr.copy()
-        kymatr = self.kymatr.copy()
-        #        print 'time1', (time.time()-startTime)*100000
-        #        startTime=time.time()
-
-        #        print e.shape
-        #        print xmatr.shape
-        #        print self.elemMatr
-
-        boolmatr = (e > xmatr)
-        #        print boolmatr
-        #        print e
-        #        print xmatr
-        one = np.zeros(boolmatr.shape[1])
-
-        boolmatrInvert = np.vstack((boolmatr[1:], one))
-        boolmatrInvert = (boolmatrInvert == False)
-        boolmatr = (boolmatr == boolmatrInvert)
-
-        #        print 'time2', (time.time()-startTime)*100000
-        #        startTime=time.time()
-
-
-        ymatr *= boolmatr
-        ymatr = np.sum(ymatr, axis=0)
-
-        kymatr *= boolmatr[:-1]
-        kymatr = np.sum(kymatr, axis=0)
-
-        xmatr *= boolmatr
-        xmatr = np.sum(xmatr, axis=0)
-        sigma = kymatr * (e - xmatr) + ymatr
-        #        print sigma
-        #        print 'time3', (time.time()-startTime)*100000
-
-        return sigma
+    # def e2sigma4(self, e):
+    #     '''e - матрица e
+    #     проверено - тестов нет'''
+    #     xmatr = self.xmatr.copy()
+    #     ymatr = self.ymatr.copy()
+    #     kymatr = self.kymatr.copy()
+    #
+    #     boolmatr = (e > xmatr)
+    #     one = np.zeros(boolmatr.shape[1])
+    #
+    #     boolmatrInvert = np.vstack((boolmatr[1:], one))
+    #     boolmatrInvert = (boolmatrInvert == False)
+    #     boolmatr = (boolmatr == boolmatrInvert)
+    #
+    #     ymatr *= boolmatr
+    #     ymatr = np.sum(ymatr, axis=0)
+    #
+    #     kymatr *= boolmatr[:-1]
+    #     kymatr = np.sum(kymatr, axis=0)
+    #
+    #     xmatr *= boolmatr
+    #     xmatr = np.sum(xmatr, axis=0)
+    #     sigma = kymatr * (e - xmatr) + ymatr
+    #
+    #     return sigma
 
     def e2ev4(self, e):
         '''e - матрица e'''
@@ -425,7 +407,7 @@ class Solves(object):
         sigma = kymatr * (e - xmatr) + ymatr
         # сигма
         ev = sigma / eTotal + dev
-        return ev
+        return ev, sigma
 
     def e0rxry2nmxmy(self, e0rxry):
         '''возвращает значение усилий по дополнительным деформациям
@@ -434,7 +416,7 @@ class Solves(object):
         e0, rx, ry = e0rxry
         e = self.e0rxry2e(e0, rx, ry)  # получили e1
         #        print self.e2sigma2(e),'sigma'
-        sigma = self.e2sigma4(e)
+        sigma = self.e2ev4(e)[1]
         n = sigma * self.elemMatr[2]
         mx = sigma * self.elemMatr[2] * self.elemMatr[0]
         my = sigma * self.elemMatr[2] * self.elemMatr[1]
@@ -443,7 +425,8 @@ class Solves(object):
         mySum = my.sum()
         return nSum, mxSum, mySum, sigma, e
 
-    def matrSolve(self, nmxmy, dd):
+    @staticmethod
+    def matrSolve(nmxmy, dd):
         '''расчет матрицы'''
         n, m_x, m_y = nmxmy
         d_11, d_12, d_13, d_22, d_23, d_33 = dd
@@ -461,10 +444,7 @@ class Solves(object):
                      d_11 * (d_23 ** 2 - d_22 * d_33) + d_12 ** 2 * d_33 - 2 * d_12 * d_13 * d_23 + d_13 ** 2 * d_22)
             error = 0
         else:
-            e0 = 0
-            rx = 0
-            ry = 0
-            error = 1
+            raise TypeError('Ошибка решения матрицы')
         return [e0, rx, ry, error]
 
     def nmxmy2e0rxry(self, nmxmy, nn, crit):
@@ -1118,6 +1098,8 @@ class Solves(object):
 
 class Test_rcSolves(unittest.TestCase):
     def setUp(self):
+
+        # Создание  1-го набора расчетов
         mat1 = {'e': 300000.0, 'name': QtCore.QString(u'B25'), 'creep_crack': None, 'creep_deform': None,
                 'e_crit': 0.007, 'e0_ult': 0.0035, 'creep_ps1': None, 'data_table_ps2': [],
                 'data_table_ps1': np.array([[-0.0035, -148.],
@@ -1132,9 +1114,9 @@ class Test_rcSolves(unittest.TestCase):
                 'e_crit': 0.05,
                 'e0_ult': None, 'creep_ps1': 0, 'data_table_ps2': [],
                 'data_table_ps1': np.array([[-0.025, -4000.],
-                                            [-4000 / 2.1 / 10 ** 6, -4000.],
+                                            [-4000 / 2.0 / 10 ** 6, -4000.],
                                             [0., 0.],
-                                            [4000 / 2.1 / 10 ** 6, 4000],
+                                            [4000 / 2.0 / 10 ** 6, 4000],
                                             [0.025, 4000],
                                             [0.0251, 4000],
                                             ]),
@@ -1153,9 +1135,9 @@ class Test_rcSolves(unittest.TestCase):
                      'type_section': QtCore.QString(u'Точка'), 'h': 0.0, 'k': 1.0, 'rx': 0.0,
                      'ry': 0.0, 'nx': 2.0, 'ny': 2.0, 'x2': 0.0, 'x3': 0.0, 'y3': 0.0, 'y2': 0.0, 'x1': 5.0,
                      'd': 1.0},
-                    {'b': 0.0, 'e': 0.0, 'mat': QtCore.QString(u'A400'), 'y1': 35.0,
-                     'type_section': QtCore.QString(u'Точка'), 'h': 0.0, 'k': 1.0, 'rx': 0.0,
-                     'ry': 0.0, 'nx': 2.0, 'ny': 2.0, 'x2': 0.0, 'x3': 0.0, 'y3': 0.0, 'y2': 0.0, 'x1': 35.0,
+                    {'b': 0.0, 'e': 0.0002, 'mat': QtCore.QString(u'A400'), 'y1': 35.0,
+                     'type_section': QtCore.QString(u'Точка'), 'h': 0.0, 'k': 1.0, 'rx': 0.0003,
+                     'ry': 0.0004, 'nx': 2.0, 'ny': 2.0, 'x2': 0.0, 'x3': 0.0, 'y3': 0.0, 'y2': 0.0, 'x1': 35.0,
                      'd': 1.0}
                     ]
 
@@ -1168,6 +1150,9 @@ class Test_rcSolves(unittest.TestCase):
         rcsolve.formGenSC()
 
         self.rcsolve = rcsolve
+
+        # Создание  2-го набора расчетов
+        # TODO сделать 2 нормальный набор расчета
 
     def test_xy_1(self):
         x, y = self.rcsolve.centerMass()
@@ -1227,8 +1212,43 @@ class Test_rcSolves(unittest.TestCase):
 
     def testMeshTest(self):
         self.rcsolve.meshMat('ps1')
-        print 'xmatr', self.rcsolve.xmatr
-        print 'ymatr', self.rcsolve.ymatr
+
+        xmatr0 = np.array([-7.00000000e-03, -3.50000000e-03, -2.00000000e-03, 0.00000000e+00,
+                           1.50000000e-04, 7.00000000e+00, 7.00000000e+00, 7.00000000e+00])
+
+        ymatr0 = np.array([-148., -148., -148., 0., 0., 0., 0., 0.])
+
+        kymatr0 = np.array([0., 0., 74000., 0., 0., 0., 0.])
+
+        xmatr1 = np.array([-0.05, -0.025, -0.002, 0., 0.002, 0.025, 0.0251,
+                           0.05])
+
+        for i, j in zip(xmatr0, self.rcsolve.xmatr[:, 0]):
+            self.assertEqual(i, j)
+
+        for i, j in zip(xmatr1, self.rcsolve.xmatr[:, -1]):
+            self.assertEqual(i, j)
+
+        for i, j in zip(ymatr0, self.rcsolve.ymatr[:, 0]):
+            self.assertEqual(i, j)
+
+        for i, j in zip(kymatr0, self.rcsolve.kymatr[:, 0]):
+            self.assertEqual(i, j)
+
+    def testE0rxry2e(self):
+        '''n, e0 - положительно, если растягивает
+            mx, rx - растягивает правую сторону
+            my, ry - растягивает верх сторону'''
+        e0 = 0.0001
+        x = 15
+        y = 10
+        rx = 0.0002
+        ry = 0.0003
+
+        e = (e0 + 0.0002) + (rx + 0.0003) * x + (ry + 0.0004) * y
+
+        e_matr = self.rcsolve.e0rxry2e(e0, rx, ry)
+        self.assertEqual(e_matr[-1], e)
 
 
 if __name__ == "__main__":
