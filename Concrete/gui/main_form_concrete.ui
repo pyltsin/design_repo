@@ -30,7 +30,7 @@
      <set>Qt::ImhNone</set>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabInputData">
      <attribute name="title">

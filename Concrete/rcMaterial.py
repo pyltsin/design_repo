@@ -75,7 +75,7 @@ typPS - тип предельного состояния'''
         x = []
         y = []
         for point in table:
-            if point[0] < self.et or self.type_material == "steel":
+            if point[0] < self.et or self.type_material == type_material['steel']:
                 x.append(point[0])
                 y.append(point[1])
 
@@ -83,7 +83,7 @@ typPS - тип предельного состояния'''
             x.append(0)
             y.append(0)
 
-        if self.type_material == "steel":
+        if self.type_material == type_material['steel']:
             x.append(self.e_crit)
             y.append(y[-1])
         else:
@@ -105,10 +105,7 @@ typPS - тип предельного состояния'''
             if x[i] != 0:
                 ev.append(y[i] / x[i])
             else:
-                if len(x) > i + 1:
-                    ev.append(y[i + 1] / x[i + 1])
-                else:
-                    ev.append(y[i - 1] / x[i - 1])
+                ev.append(y[i - 1] / x[i - 1])
 
         self.x = x
         self.y = y

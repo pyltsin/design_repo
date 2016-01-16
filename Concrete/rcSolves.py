@@ -78,15 +78,13 @@ class Solves(object):
         [] - материал
         [] - e0
         [] - rx
-        [] - ry
-
-        Проверено, тесты не сделаны'''
+        [] - ry'''
         lst = self.formLst
         matrS = False
 
         matrC = False
         for i in lst:
-            print i, 'sect'
+            # print i, 'sect'
             if self.lstMat[i.mat].type_material == rcMaterial.type_material['steel']:
                 #                print 'tut'
                 if matrS == False:
@@ -103,45 +101,20 @@ class Solves(object):
 
         #        print self.elemMatrS[0]
 
-        print x, y, "x, y"
+        # print x, y, "x, y"
 
         matrC[0] -= x
-        print matrC
+        # print matrC
         matrC[1] -= y
 
         matrS[0] -= x
 
         matrS[1] -= y
 
-        print len(matrC), len(matrS)
+        # print len(matrC), len(matrS)
         self.elemMatr = np.concatenate((matrC, matrS), axis=1)
         self.elemMatrC = matrC
         self.elemMatrS = matrS
-
-    # def formGen(self):
-    #     '''Создает матрицу элементов
-    #     type0 - флаг если начальные искривления
-    #     Проверено, тесты не сделаны'''
-    #     self.formGenSC()
-    #
-    #     #        print 'elemMatr', self.elemMatr
-    #     matr = self.elemMatr
-    #
-    #     e0 = (matr[-3] != 0).astype(float)
-    #     rx = (matr[-2] != 0).astype(float)
-    #     ry = (matr[-1] != 0).astype(float)
-    #
-    #     e0sum = e0.sum()
-    #     rxsum = rx.sum()
-    #     rysum = ry.sum()
-    #
-    #     if e0sum < 10 ** (-10) and rxsum < 10 ** (-10) and rysum < 10 ** (-10):
-    #         self.type0 = False
-    #     else:
-    #         self.type0 = True
-    #
-    #     self.jx = (matr[3] * matr[0] * matr[0]).sum
-    #     self.jy = (matr[3] * matr[1] * matr[1]).sum
 
     def load_list_materials(self, raw_list):
         '''загрузка сырых данных и создание материалов.
@@ -151,15 +124,46 @@ class Solves(object):
             lstMat.append(rcMaterial.GeneralMaterial(mat))
         self.lstMat = lstMat
 
-        for mat in lstMat:
-            print mat.name
-            print mat.e
+        # for mat in lstMat:
+        #     print mat.name
+        #     print mat.e
 
-    def loadMat(self, lstMat):
-        '''загружаем материалы и создаем список функций
-        в принципе правильно - без тестов'''
+    def meshMat(self, typeMesh):
+        '''меширование материалов по типу.
+        Типы могут быть - ['ps1', 'ps2', 'ps2long']'''
+        lstType = ['ps1', 'ps2', 'ps2long']
+        if typeMesh in lstType:
+            for item in self.lstMat:
 
-        self.lstMat = lstMat
+                if typeMesh == lstType[0]:
+                    item.generate_ps1()
+                elif typeMesh == lstType[1]:
+                    item.generate_ps2()
+                elif typeMesh == lstType[2]:
+                    item.generate_ps2long()
+
+            self.joinMat()
+        else:
+            raise TypeError(u'Ошибка задания типа меширования материала')
+
+    def joinMat(self):
+        '''вспомогательная функция.
+        используется для объединения данных материалов и приведения их к одной длине
+
+        использовать после меширования материалов
+        размешиваем материалы.
+        данные материалов берутся из self.lstMat.
+
+        self.xmatr = xmatr - координата оси Х
+        self.ymatr = ymatr - координата оси Y
+        self.yEvmatr = yEvmatr - наклон от 0 к x, y
+        self.kymatr = kymatr - наклон от точки к точке
+        self.kyEvmatr = kyEv - угол наклона от точки к точки для yEv
+        self.dxmatr = - начальный E
+
+        '''
+
+        lstMat = self.lstMat
 
         ''' записываем в lst все массивы'''
         maxx = 0
@@ -205,6 +209,7 @@ class Solves(object):
 
         for i in self.formLst:
             ln = i.ln()
+            print 'ln', ln
             xone = np.ones(ln)
 
             xmatrTemp = np.array(lstx[i.mat])
@@ -237,7 +242,7 @@ class Solves(object):
             kyEvmatrTemp = kyEvmatrTemp[0]
             kyEvmatrTemp = kyEvmatrTemp.transpose()
 
-            if xmatr == None:
+            if xmatr is None:
                 xmatr = xmatrTemp
                 dxmatr = dxmatrTemp
 
@@ -264,7 +269,7 @@ class Solves(object):
         self.dxmatr = np.array(dxmatr)
 
     def centerMass(self):
-        '''возвращает координаты центра массы - проверено, тесты не сделаны
+        '''возвращает координаты центра массы
         возвращает x, y'''
         a = 0
         sx = 0
@@ -536,7 +541,7 @@ class Solves(object):
         x, y = self.centerMass()
 
         for i in lstCritPoint:
-            print 'i', i
+            # print 'i', i
             i[0] -= x
             i[1] -= y
         # print 'lstCritPoint', lstCritPoint
@@ -576,7 +581,7 @@ class Solves(object):
         flagSearch = False
         while True:
             n += 1
-            print'tt', kDelCur, kDel1, kDel2, nTemp
+            # print'tt', kDelCur, kDel1, kDel2, nTemp
 
             if abs((kDelCur - kDel1) / kDelCur) < crit:
                 nTemp, mxTemp, myTemp = nFact * kDel1, mxFact * kDel1, myTemp * kDel1
@@ -701,12 +706,12 @@ class Solves(object):
                 ee = self.e0rxry2e(e0rxryTemp[0] * 0.8, e0rxryTemp[1] * 0.8, e0rxryTemp[2] * 0.8)
                 dd1 = self.e2d(ee)[0]
 
-                print 'dd1', dd1
+                # print 'dd1', dd1
                 #                print e0rxryTemp[0:3]
                 #                print nmxmyTemp[0:3]
 
                 dd = self.nmxmy2e0rxry([nmxmyTemp[0], nmxmyTemp[1], nmxmyTemp[2]], nn * 20, crit)[5]
-                print 'dd2', dd
+                # print 'dd2', dd
                 #                print self.nmxmy2e0rxry([nmxmyTemp[0],nmxmyTemp[1],nmxmyTemp[2]], nn*20, crit)
                 #                print 'dd2', dd2[5]
                 #                print dd2[0:3]
@@ -1114,17 +1119,25 @@ class Solves(object):
 class Test_rcSolves(unittest.TestCase):
     def setUp(self):
         mat1 = {'e': 300000.0, 'name': QtCore.QString(u'B25'), 'creep_crack': None, 'creep_deform': None,
-                'e_crit': 0.007, 'e0_ult': 0.002, 'creep_ps1': None, 'data_table_ps2': [],
-                'data_table_ps1': np.array([[1., 4.],
-                                            [2., 5.],
-                                            [3., 6.]]), 'e_ult': 0.0035, 'et': 0.00015, 'type_material': 1,
+                'e_crit': 0.007, 'e0_ult': 0.0035, 'creep_ps1': None, 'data_table_ps2': [],
+                'data_table_ps1': np.array([[-0.0035, -148.],
+                                            [-0.002, -148],
+                                            [0., 0.],
+                                            [0.002, 148.],
+                                            [0.0035, 148.],
+                                            ]), 'e_ult': 0.0035, 'et': 0.00015, 'type_material': 1,
                 'data_table_ps2_long': []}
 
         mat2 = {'e': 2100000.0, 'name': QtCore.QString(u'A400'), 'creep_crack': 0, 'creep_deform': 1,
                 'e_crit': 0.05,
-                'e0_ult': None, 'creep_ps1': 0, 'data_table_ps2': [], 'data_table_ps1': np.array([[1., 4.],
-                                                                                                  [2., 5.],
-                                                                                                  [3., 6.]]),
+                'e0_ult': None, 'creep_ps1': 0, 'data_table_ps2': [],
+                'data_table_ps1': np.array([[-0.025, -4000.],
+                                            [-4000 / 2.1 / 10 ** 6, -4000.],
+                                            [0., 0.],
+                                            [4000 / 2.1 / 10 ** 6, 4000],
+                                            [0.025, 4000],
+                                            [0.0251, 4000],
+                                            ]),
                 'e_ult': 0.025,
                 'et': None, 'type_material': 0, 'data_table_ps2_long': []}
 
@@ -1171,7 +1184,7 @@ class Test_rcSolves(unittest.TestCase):
     def test_nuD(self):
         lst_nmxmy = [[-5.0, 5.0, 4.0, -4.0, 5.0, 6.0]]
 
-        print self.rcsolve.elemMatrC
+        # print self.rcsolve.elemMatrC
         typD = True
         typStat = False
         lx = 8
@@ -1181,8 +1194,8 @@ class Test_rcSolves(unittest.TestCase):
         # print typD, typStat, lx, ly, l
 
         outD, error, titleD = self.rcsolve.nuD(lst_nmxmy, typStat, lx, ly, l, typD)
-        for x, y in zip(outD[0], titleD):
-            print x, y
+        # for x, y in zip(outD[0], titleD):
+        #     print x, y
 
         self.assertEquals(outD[0][0], -5.0)
         self.assertLess((outD[0][1] - 5.46) / outD[0][1], 0.001)
@@ -1211,6 +1224,11 @@ class Test_rcSolves(unittest.TestCase):
 
         self.assertLess((outD[0][17] - 59.7) / outD[0][17], 0.01)
         self.assertLess((outD[0][18] - 70.2) / outD[0][18], 0.01)
+
+    def testMeshTest(self):
+        self.rcsolve.meshMat('ps1')
+        print 'xmatr', self.rcsolve.xmatr
+        print 'ymatr', self.rcsolve.ymatr
 
 
 if __name__ == "__main__":
