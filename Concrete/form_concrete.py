@@ -38,6 +38,7 @@ class MainWindow(QtGui.QMainWindow):
         print "test"
 
     def init_prop(self):
+        '''инициализация свойств'''
         self.box_number_ps1.setValue(3)
         self.box_number_ps2.setValue(3)
         self.box_number_ps2_long.setValue(3)
@@ -126,10 +127,12 @@ class MainWindow(QtGui.QMainWindow):
         self.changeCheckBoxSolve()
 
     def get_nmxmy(self):
+        '''получаем данные из таблицы усилий, возвращаем списк списков'''
         return self.get_from_table(self.tableLoad)
 
     @staticmethod
     def get_from_table(widget):
+        '''универсальный метод возврата списков списков из таблиц'''
         lst = []
         for j in xrange(widget.rowCount()):
 
@@ -149,6 +152,7 @@ class MainWindow(QtGui.QMainWindow):
         return lst
 
     def solve(self):
+        '''сам расчет'''
         try:
             # 0 - nmxmy
             lst_nmxmy = self.get_nmxmy()
@@ -211,6 +215,7 @@ class MainWindow(QtGui.QMainWindow):
 
     @staticmethod
     def input_table_in(array, widget, title):
+        '''загрузка данных в таблицу'''
         lx, ly = np.shape(array)
 
         widget.setRowCount(lx)
@@ -553,6 +558,7 @@ class MainWindow(QtGui.QMainWindow):
         self.refresh_list_section()
 
     def check_data(self, lst):
+        '''проверка данных таблиц для материала'''
         first_row = lst[0]
         for item in lst[1:]:
             if item[0] > first_row[0]:
