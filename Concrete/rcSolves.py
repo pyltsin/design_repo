@@ -425,7 +425,8 @@ class Solves(object):
                      d_11 * (d_23 ** 2 - d_22 * d_33) + d_12 ** 2 * d_33 - 2 * d_12 * d_13 * d_23 + d_13 ** 2 * d_22)
             error = 0
         else:
-            raise TypeError('Ошибка решения матрицы')
+            error = 1
+            e0, rx, ry = 0, 0, 0
         return [e0, rx, ry, error]
 
     def nmxmy2e0rxry(self, nmxmy, nn, crit):
@@ -1289,6 +1290,28 @@ class Test_rcSolves(unittest.TestCase):
         self.assertAlmostEqual(0., sigma[-1])
         self.assertAlmostEqual(4000., sigma[-2])
         self.assertAlmostEqual(2000000, ev[-1])
+
+    def testMatrSolve(self):
+        nmxmy = [31, 14, 25]
+        '''11, 12, 13       1
+            -, 22, 23  =    2
+            -, - , 33       3
+           '''
+        dd = [1, 2, 3, 4, 5, 6]
+        '''1    2   3       =1+4+9=14
+            2   4   5        =2+8+15=25
+            3   5   6          =3+10+18=31'''
+        x = self.rcsolve2.matrSolve(nmxmy, dd)
+        x_answer = [3, 1, 2, 0]
+        self.assertListEqual(x, x_answer)
+
+        nmxmy = [0, 0, 0]
+        dd = [0, 0, 0, 0, 0, 0]
+        x_answer = [0, 0, 0, 1]
+        x = self.rcsolve2.matrSolve(nmxmy, dd)
+
+        self.assertListEqual(x, x_answer)
+
 
 if __name__ == "__main__":
     unittest.main()
