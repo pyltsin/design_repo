@@ -559,6 +559,8 @@ class MainWindow(QtGui.QMainWindow):
                 first_row = item
             else:
                 raise DataError
+        if [0., 0.] not in lst:
+            raise DataError
 
     def get_data(self, table):
         try:

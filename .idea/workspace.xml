@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c6c89f28-0f93-4519-93ca-26c1ae2b155b" name="Default" comment="start ps1">
+    <list default="true" id="c6c89f28-0f93-4519-93ca-26c1ae2b155b" name="Default" comment="+ test e from e0rxry">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Concrete/form_concrete.py" afterPath="$PROJECT_DIR$/Concrete/form_concrete.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Concrete/rcMaterial.py" afterPath="$PROJECT_DIR$/Concrete/rcMaterial.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Concrete/rcSolves.py" afterPath="$PROJECT_DIR$/Concrete/rcSolves.py" />
     </list>
     <ignored path="python_my.iws" />
@@ -18,21 +21,21 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/python_my$Unittests_in_rcMesh__1_.coverage" NAME="Unittests in rcMesh (1) Coverage Results" MODIFIED="1452441381412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
-    <SUITE FILE_PATH="coverage/python_my$Unittests_in_rcSolves__2_.coverage" NAME="Unittests in rcSolves (2) Coverage Results" MODIFIED="1452966974828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
-    <SUITE FILE_PATH="coverage/python_my$Unittests_in_rcSolves.coverage" NAME="Unittests in rcSolves Coverage Results" MODIFIED="1452966996081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
+    <SUITE FILE_PATH="coverage/python_my$Unittests_in_rcSolves__2_.coverage" NAME="Unittests in rcSolves (2) Coverage Results" MODIFIED="1453042117849" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
+    <SUITE FILE_PATH="coverage/python_my$Unittests_in_rcSolves.coverage" NAME="Unittests in rcSolves Coverage Results" MODIFIED="1453043273456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
     <SUITE FILE_PATH="coverage/python_my$form_SolveConcreteSection.coverage" NAME="form_SolveConcreteSection Coverage Results" MODIFIED="1452957847364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
     <SUITE FILE_PATH="coverage/python_my$Unittest_Test_testReinforcedDia.coverage" NAME="Unittest Test.testReinforcedDia Coverage Results" MODIFIED="1452441496708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
-    <SUITE FILE_PATH="coverage/python_my$Unittests_in_rcSolves__3_.coverage" NAME="Unittests in rcSolves (3) Coverage Results" MODIFIED="1452963794557" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
-    <SUITE FILE_PATH="coverage/python_my$Unittests_in_Test_rcSolves.coverage" NAME="Unittests in Test_rcSolves Coverage Results" MODIFIED="1452962963246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
-    <SUITE FILE_PATH="coverage/python_my$Unittests_in_rcSolves__4_.coverage" NAME="Unittests in rcSolves (4) Coverage Results" MODIFIED="1452963856572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
+    <SUITE FILE_PATH="coverage/python_my$Unittests_in_rcSolves__3_.coverage" NAME="Unittests in rcSolves (3) Coverage Results" MODIFIED="1453043123507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
+    <SUITE FILE_PATH="coverage/python_my$Unittests_in_Test_rcSolves.coverage" NAME="Unittests in Test_rcSolves Coverage Results" MODIFIED="1453043222532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
+    <SUITE FILE_PATH="coverage/python_my$Unittests_in_rcSolves__4_.coverage" NAME="Unittests in rcSolves (4) Coverage Results" MODIFIED="1453043151561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
     <SUITE FILE_PATH="coverage/python_my$Unittests_in_rcSolves__5_.coverage" NAME="Unittests in rcSolves (5) Coverage Results" MODIFIED="1452440086362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
     <SUITE FILE_PATH="coverage/python_my$Unittests_in_rcMesh.coverage" NAME="Unittests in rcMesh Coverage Results" MODIFIED="1452441329723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
-    <SUITE FILE_PATH="coverage/python_my$Unittest_Test_rcSolves_testMeshTest.coverage" NAME="Unittest Test_rcSolves.testMeshTest Coverage Results" MODIFIED="1452966983889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
-    <SUITE FILE_PATH="coverage/python_my$Unittest_Test_rcSolves_testE0rxry2e.coverage" NAME="Unittest Test_rcSolves.testE0rxry2e Coverage Results" MODIFIED="1452969512364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
+    <SUITE FILE_PATH="coverage/python_my$Unittest_Test_rcSolves_testMeshTest.coverage" NAME="Unittest Test_rcSolves.testMeshTest Coverage Results" MODIFIED="1453042061200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
+    <SUITE FILE_PATH="coverage/python_my$Unittest_Test_rcSolves_testE0rxry2e.coverage" NAME="Unittest Test_rcSolves.testE0rxry2e Coverage Results" MODIFIED="1453043257170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
     <SUITE FILE_PATH="coverage/python_my$test_git.coverage" NAME="test_git Coverage Results" MODIFIED="1452957782029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
     <SUITE FILE_PATH="coverage/python_my$Unittest_Test_rcSolves_test_nuD.coverage" NAME="Unittest Test_rcSolves.test_nuD Coverage Results" MODIFIED="1452963209669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
     <SUITE FILE_PATH="coverage/python_my$form_concrete.coverage" NAME="form_concrete Coverage Results" MODIFIED="1452962783608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
-    <SUITE FILE_PATH="coverage/python_my$Unittests_in_rcSolves__1_.coverage" NAME="Unittests in rcSolves (1) Coverage Results" MODIFIED="1452969523018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
+    <SUITE FILE_PATH="coverage/python_my$Unittests_in_rcSolves__1_.coverage" NAME="Unittests in rcSolves (1) Coverage Results" MODIFIED="1453042762673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
     <SUITE FILE_PATH="coverage/python_my$rcSolves.coverage" NAME="rcSolves Coverage Results" MODIFIED="1452432944133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Concrete" />
   </component>
   <component name="CoverageViewManager">
@@ -51,11 +54,20 @@
       <file leaf-file-name="form_concrete.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Concrete/form_concrete.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="182" column="33" selection-start-line="182" selection-start-column="33" selection-end-line="182" selection-end-column="33" />
+            <state vertical-scroll-proportion="105.034485">
+              <caret line="558" column="32" selection-start-line="558" selection-start-column="32" selection-end-line="558" selection-end-column="32" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.ipynb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Study/test.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="11" />
             </state>
           </provider>
         </entry>
@@ -70,23 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rcMesh.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Concrete/rcMesh.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="283" column="29" selection-start-line="283" selection-start-column="29" selection-end-line="283" selection-end-column="29" />
-              <folding>
-                <element signature="e#86#101#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="rcMaterial.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Concrete/rcMaterial.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="77" column="82" selection-start-line="77" selection-start-column="82" selection-end-line="77" selection-end-column="82" />
+              <caret line="67" column="36" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
               <folding>
                 <element signature="e#84#112#0" expanded="true" />
               </folding>
@@ -97,11 +97,60 @@
       <file leaf-file-name="rcSolves.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Concrete/rcSolves.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3321492">
-              <caret line="514" column="12" selection-start-line="514" selection-start-column="12" selection-end-line="514" selection-end-column="12" />
+            <state vertical-scroll-proportion="-0.9979839">
+              <caret line="392" column="8" selection-start-line="392" selection-start-column="8" selection-end-line="392" selection-end-column="8" />
               <folding>
                 <element signature="e#86#104#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shape_base.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Python27/Lib/site-packages/numpy/core/shape_base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="274" column="0" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testnp.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Study/stud/testnp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="np.ipynb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Study/stud/np.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tables.html" pinned="false" current-in-tab="false">
+        <entry file="file://D:/фильмы/Программирование/html/[Специалист] HTML и CSS. Уровень 1/html/demo/module-7/tables.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="php.html" pinned="false" current-in-tab="false">
+        <entry file="file://D:/фильмы/Программирование/html/[Специалист] HTML и CSS. Уровень 1/html/labs/time-tables/php.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -134,7 +183,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Concrete/rcMesh.py" />
-        <option value="$PROJECT_DIR$/Concrete/form_concrete.py" />
         <option value="D:/фильмы/Программирование/html/[Специалист] HTML и CSS. Уровень 1/html/demo/index.html" />
         <option value="D:/фильмы/Программирование/html/[Специалист] HTML и CSS. Уровень 1/html/demo/style.ccs" />
         <option value="D:/фильмы/Программирование/html/[Специалист] HTML и CSS. Уровень 1/html/labs/style.css" />
@@ -143,7 +191,13 @@
         <option value="D:/фильмы/Программирование/html/[Специалист] HTML и CSS. Уровень 1/html/labs/content/news.html" />
         <option value="D:/фильмы/Программирование/html/[Специалист] HTML и CSS. Уровень 1/html/labs/content/events.html" />
         <option value="$PROJECT_DIR$/Concrete/test_git.py" />
+        <option value="D:/фильмы/Программирование/html/[Специалист] HTML и CSS. Уровень 1/html/demo/module-7/tables.html" />
+        <option value="D:/фильмы/Программирование/html/[Специалист] HTML и CSS. Уровень 1/html/labs/time-tables/php.html" />
+        <option value="$PROJECT_DIR$/Study/test.ipynb" />
+        <option value="$PROJECT_DIR$/Study/stud/testnp.py" />
+        <option value="$PROJECT_DIR$/Study/stud/np.ipynb" />
         <option value="$PROJECT_DIR$/Concrete/rcMaterial.py" />
+        <option value="$PROJECT_DIR$/Concrete/form_concrete.py" />
         <option value="$PROJECT_DIR$/Concrete/rcSolves.py" />
       </list>
     </option>
@@ -185,7 +239,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -214,7 +267,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Steel" />
+              <option name="myItemId" value="Study" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python_my" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python_my" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Study" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stud" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -229,30 +300,13 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Concrete" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="python_my" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="python_my" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Concrete" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -289,76 +343,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in rcSolves (1)">
-    <configuration default="false" name="Unittests in rcSolves (2)" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Concrete" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="python_my" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Concrete/rcSolves.py" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Unittest Test_rcSolves.testMeshTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Concrete" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="python_my" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Concrete/rcSolves.py" />
-      <option name="CLASS_NAME" value="Test_rcSolves" />
-      <option name="METHOD_NAME" value="testMeshTest" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_METHOD" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Unittests in rcSolves" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Concrete" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="python_my" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Concrete/rcSolves.py" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Unittests in rcSolves">
     <configuration default="false" name="Unittest Test_rcSolves.testE0rxry2e" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -382,7 +367,76 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Unittests in rcSolves (1)" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Unittests in rcSolves (3)" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Concrete" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_my" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Concrete/rcSolves.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in rcSolves (4)" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Concrete" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_my" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Concrete/rcSolves.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in Test_rcSolves" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Concrete" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_my" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Concrete/rcSolves.py" />
+      <option name="CLASS_NAME" value="Test_rcSolves" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_CLASS" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in rcSolves" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -1026,19 +1080,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.form_concrete" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in rcSolves (2)" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest Test_rcSolves.testMeshTest" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in rcSolves" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest Test_rcSolves.testE0rxry2e" />
-      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests in rcSolves (1)" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest Test_rcSolves.testE0rxry2e" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in rcSolves (3)" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in rcSolves (4)" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in Test_rcSolves" />
+      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests in rcSolves" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in rcSolves (1)" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in rcSolves" />
         <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest Test_rcSolves.testE0rxry2e" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in rcSolves" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest Test_rcSolves.testMeshTest" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in rcSolves (2)" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in Test_rcSolves" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in rcSolves (4)" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in rcSolves (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -1064,7 +1118,8 @@
       <workItem from="1452430040382" duration="11434000" />
       <workItem from="1452715540945" duration="5188000" />
       <workItem from="1452802229559" duration="6570000" />
-      <workItem from="1452956602111" duration="13388000" />
+      <workItem from="1452956602111" duration="24139000" />
+      <workItem from="1453039789089" duration="3821000" />
     </task>
     <task id="LOCAL-00001" summary="+ idea">
       <created>1452350958843</created>
@@ -1108,43 +1163,49 @@
       <option name="project" value="LOCAL" />
       <updated>1452964096873</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="+ test e from e0rxry">
+      <created>1452970367039</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1452970367039</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittest_Test_rcSolves_testE0rxry2e - 2016.01.16 at 21h 38m 32s.xml">
+    <history-entry file="Unittest_Test_rcSolves_testE0rxry2e - 2016.01.17 at 18h 01m 33s.xml">
       <configuration name="Unittest Test_rcSolves.testE0rxry2e" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_Test_rcSolves_testMeshTest - 2016.01.16 at 20h 46m 40s.xml">
-      <configuration name="Unittest Test_rcSolves.testMeshTest" configurationId="tests" />
+    <history-entry file="Unittest_Test_rcSolves_testE0rxry2e - 2016.01.17 at 18h 04m 03s.xml">
+      <configuration name="Unittest Test_rcSolves.testE0rxry2e" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_Test_rcSolves_testMeshTest - 2016.01.16 at 20h 47m 28s.xml">
-      <configuration name="Unittest Test_rcSolves.testMeshTest" configurationId="tests" />
+    <history-entry file="Unittest_Test_rcSolves_testE0rxry2e - 2016.01.17 at 18h 04m 12s.xml">
+      <configuration name="Unittest Test_rcSolves.testE0rxry2e" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_Test_rcSolves_testMeshTest - 2016.01.16 at 20h 48m 00s.xml">
-      <configuration name="Unittest Test_rcSolves.testMeshTest" configurationId="tests" />
+    <history-entry file="Unittest_Test_rcSolves_testE0rxry2e - 2016.01.17 at 18h 04m 28s.xml">
+      <configuration name="Unittest Test_rcSolves.testE0rxry2e" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_Test_rcSolves_testMeshTest - 2016.01.16 at 20h 54m 33s.xml">
-      <configuration name="Unittest Test_rcSolves.testMeshTest" configurationId="tests" />
+    <history-entry file="Unittest_Test_rcSolves_testE0rxry2e - 2016.01.17 at 18h 07m 17s.xml">
+      <configuration name="Unittest Test_rcSolves.testE0rxry2e" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_Test_rcSolves_testMeshTest - 2016.01.16 at 20h 55m 03s.xml">
-      <configuration name="Unittest Test_rcSolves.testMeshTest" configurationId="tests" />
+    <history-entry file="Unittest_Test_rcSolves_testE0rxry2e - 2016.01.17 at 18h 07m 37s.xml">
+      <configuration name="Unittest Test_rcSolves.testE0rxry2e" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_Test_rcSolves_testMeshTest - 2016.01.16 at 20h 56m 24s.xml">
-      <configuration name="Unittest Test_rcSolves.testMeshTest" configurationId="tests" />
+    <history-entry file="Unittests_in_Test_rcSolves - 2016.01.17 at 18h 07m 02s.xml">
+      <configuration name="Unittests in Test_rcSolves" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_rcSolves - 2016.01.16 at 20h 56m 36s.xml">
+    <history-entry file="Unittests_in_rcSolves - 2016.01.17 at 18h 07m 54s.xml">
       <configuration name="Unittests in rcSolves" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_rcSolves_(1) - 2016.01.16 at 21h 38m 43s.xml">
-      <configuration name="Unittests in rcSolves (1)" configurationId="tests" />
+    <history-entry file="Unittests_in_rcSolves_(3) - 2016.01.17 at 18h 05m 23s.xml">
+      <configuration name="Unittests in rcSolves (3)" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_rcSolves_(2) - 2016.01.16 at 20h 56m 15s.xml">
-      <configuration name="Unittests in rcSolves (2)" configurationId="tests" />
+    <history-entry file="Unittests_in_rcSolves_(4) - 2016.01.17 at 18h 05m 51s.xml">
+      <configuration name="Unittests in rcSolves (4)" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54897000" />
+    <option name="totallyTimeSpent" value="69469000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1160,20 +1221,19 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792208" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38786566" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11484291" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40086675" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14734562" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40086675" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23773988" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19189766" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.118336886" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1183,6 +1243,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1233,7 +1294,8 @@
     <MESSAGE value="+ start test" />
     <MESSAGE value="+ test nud" />
     <MESSAGE value="start ps1" />
-    <option name="LAST_COMMIT_MESSAGE" value="start ps1" />
+    <MESSAGE value="+ test e from e0rxry" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ test e from e0rxry" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1248,60 +1310,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/фильмы/Программирование/html/[Специалист] HTML и CSS. Уровень 1/html/demo/style.ccs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Concrete/form_concrete.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Concrete/rcMesh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="283" column="29" selection-start-line="283" selection-start-column="29" selection-end-line="283" selection-end-column="29" />
-          <folding>
-            <element signature="e#86#101#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Concrete/form_concrete.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="149" column="8" selection-start-line="149" selection-start-column="8" selection-end-line="149" selection-end-column="8" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Concrete/form_load.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="209" column="17" selection-start-line="192" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Concrete/rcMaterial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="853" column="18" selection-start-line="853" selection-start-column="18" selection-end-line="853" selection-end-column="18" />
-          <folding>
-            <element signature="e#84#112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Concrete/rcSolves.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1576,7 +1584,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1584,7 +1591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1592,7 +1598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1600,7 +1605,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05086705">
           <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1608,9 +1612,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9491329">
           <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1618,7 +1619,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12267658">
           <caret line="3" column="6" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1640,23 +1640,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Concrete/rcMaterial.py">
+    <entry file="file://D:/фильмы/Программирование/html/[Специалист] HTML и CSS. Уровень 1/html/demo/module-7/tables.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="82" selection-start-line="77" selection-start-column="82" selection-end-line="77" selection-end-column="82" />
-          <folding>
-            <element signature="e#84#112#0" expanded="true" />
-          </folding>
+          <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Concrete/form_concrete.py">
+    <entry file="file://D:/фильмы/Программирование/html/[Специалист] HTML и CSS. Уровень 1/html/labs/time-tables/php.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="182" column="33" selection-start-line="182" selection-start-column="33" selection-end-line="182" selection-end-column="33" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Study/test.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Study/stud/np.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Study/stud/testnp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/numpy/core/shape_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="274" column="0" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1668,10 +1694,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Concrete/form_concrete.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="105.034485">
+          <caret line="558" column="32" selection-start-line="558" selection-start-column="32" selection-end-line="558" selection-end-column="32" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Concrete/rcMaterial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="36" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+          <folding>
+            <element signature="e#84#112#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Concrete/rcSolves.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3321492">
-          <caret line="514" column="12" selection-start-line="514" selection-start-column="12" selection-end-line="514" selection-end-column="12" />
+        <state vertical-scroll-proportion="-0.9979839">
+          <caret line="392" column="8" selection-start-line="392" selection-start-column="8" selection-end-line="392" selection-end-column="8" />
           <folding>
             <element signature="e#86#104#0" expanded="true" />
           </folding>
